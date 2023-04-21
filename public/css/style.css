@@ -4,23 +4,23 @@
     box-sizing: border-box;
 }
 
-.gradient-custom-3 {
+/* .gradient-custom-3 {
     background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 }
 
 .gradient-custom-4 {
     /* fallback for old browsers */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-}
+    /* background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1)) */
+/* } */
 
 
 h1 {
     text-align: center;
 }
 
-.list-group-item {
+/* .list-group-item {
     margin-top: 20px;
-}
+} */
 
 nav {
     background-color: black;
@@ -38,7 +38,7 @@ ul li {
 }
 
 main {
-    min-height: 78.9vh;
+    min-height: 83vh;
 }
 
 a {
@@ -74,7 +74,7 @@ p {
 
 footer {
     background-color: black;
-    padding: 2em;
+    padding: 1.5em;
     color: white;
     line-height: 0px;
 }

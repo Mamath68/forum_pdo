@@ -1,20 +1,19 @@
 <?php
-namespace Model\Managers;
+    namespace Model\Managers;
+    
+    use App\Manager;
+    use App\DAO;
+    // use Model\Managers\TopicManager;
 
-use App\Manager;
-use App\DAO;
+    class TopicManager extends Manager{
 
-// use Model\Managers\TopicManager;
-
-class TopicManager extends Manager
-{
-
-    protected $className = "Model\Entities\Topic";
-    protected $tableName = "topic";
+        protected $className = "Model\Entities\Topic";
+        protected $tableName = "topic";
 
 
-    public function __construct()
-    {
-        parent::connect();
+        public function __construct(){
+            parent::connect();
+        }
+
+
     }
-}
