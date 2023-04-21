@@ -16,7 +16,8 @@ class UserManager extends Manager
         parent::connect();
     }
 
-    public function findOneByPseudo($data) {
+    public function findOneByPseudo($data)
+    {
 
         $sql = "SELECT u.pseudo
         FROM " . $this->tableName . " u
