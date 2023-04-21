@@ -8,6 +8,7 @@ use App\ControllerInterface;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
 use Model\Managers\CategoryManager;
+use Model\Managers\UserManager;
 
 class SecurityController extends AbstractController implements ControllerInterface
 {
@@ -35,12 +36,37 @@ class SecurityController extends AbstractController implements ControllerInterfa
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $confirmpassword = filter_input(INPUT_POST, "confirmpassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
-
+die();
             if ($nickname && $password && $email) {
                 if (($password == $confirmpassword) and strlen($password) >= 8) {
+                    $manager = new UserManager();
+                    $user = $manager->findOneByPseudo($nickname);
 
+
+                    if (!$user) {
+
+                        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+                        if (
+                            $manager->add([
+                                "pseudo" => $nickname,
+                                "email" => $email,
+                                "password" => $hash
+                            ])
+                        ) {
+
+                            return var_dump("Vous êtes bien inscrit");
+                        }
+                    }
                 }
             }
         }
+    }
+    public function loginForm()
+    {
+        return [
+            "view" => VIEW_DIR . "security/login.php",
+            "data" => null,
+        ];
     }
 }

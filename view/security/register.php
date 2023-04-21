@@ -1,5 +1,8 @@
 <h1>Register Form</h1>
 
+<?php
+var_dump($_POST);
+?>
 <form action="index.php?ctrl=security&action=register" method="post" enctype="multipart">
 
     <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" required>

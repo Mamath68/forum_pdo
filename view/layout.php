@@ -49,7 +49,7 @@
                             <?php
                         } else {
                             ?>
-                            <a class="href" href="#">Connexion</a>
+                            <a class="href" href="index.php?ctrl=security&action=loginForm">Connexion</a>
                             <a class="href" href="index.php?ctrl=security&action=registerForm">Inscription</a>
                             <a class="href" href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
                             <?php
