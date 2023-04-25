@@ -1,13 +1,23 @@
 <h1>Register Form</h1>
 
-<?php
-?>
 <form action="index.php?ctrl=security&action=register" method="post" enctype="multipart">
 
-    <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" required>
-    <input type="email" name="email" id="email" placeholder="Email" required>
-    <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-    <input type="password" name="confirmepassword" id="password" placeholder="Confirmer Mot de passe" required>
+    <div class="mb-3">
+        <label for="pseudo" class="form-label">Pseudo</label>
+        <input input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email"  name="email" id="email" placeholder="Email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" placeholder="Mot de passe" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Password</label>
+        <input type="password" name="confirmpassword" id="password" placeholder="Confirmer Mot de passe" class="form-control" required>
+    </div>
 
-    <button type="submit">Enregistrer</button>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>

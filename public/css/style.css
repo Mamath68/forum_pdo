@@ -4,23 +4,9 @@
     box-sizing: border-box;
 }
 
-/* .gradient-custom-3 {
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
-
-.gradient-custom-4 {
-    /* fallback for old browsers */
-    /* background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1)) */
-/* } */
-
-
 h1 {
     text-align: center;
 }
-
-/* .list-group-item {
-    margin-top: 20px;
-} */
 
 nav {
     background-color: black;
@@ -38,7 +24,7 @@ ul li {
 }
 
 main {
-    min-height: 83vh;
+    min-height: 81vh;
 }
 
 a {
@@ -77,4 +63,13 @@ footer {
     padding: 1.5em;
     color: white;
     line-height: 0px;
+}
+
+.form-control {
+    width: 50%;
+    border-radius: 2rem;
+}
+
+form {
+margin-left: 30%;    
 }
