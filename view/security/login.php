@@ -3,7 +3,7 @@
 <form action="index.php?ctrl=security&action=login" method="post" enctype="multipart">
 
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <label for="pseudo " class="form-label">Pseudo</label>
         <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo" required>
     </div>
     <div class="mb-3">

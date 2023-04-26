@@ -1,9 +1,9 @@
 <h1>BIENVENUE SUR LE FORUM</h1>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut nemo quia voluptas numquam, itaque ipsa soluta
+<p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut nemo quia voluptas numquam, itaque ipsa soluta
     ratione eum temporibus aliquid, facere rerum in laborum debitis labore aliquam ullam cumque.</p>
 
-<p>
+<p class="p">
     <a href="index.php?ctrl=security&action=loginForm">Se connecter</a>
     <span>&nbsp;-&nbsp;</span>
     <a href="index.php?ctrl=security&action=registerForm">S'inscrire</a>

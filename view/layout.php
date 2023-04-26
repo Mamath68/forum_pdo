@@ -53,7 +53,7 @@
                             ?>
                             <a class="href" href="index.php?ctrl=security&action=loginForm">Connexion</a>
                             <a class="href" href="index.php?ctrl=security&action=registerForm">Inscription</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Topics</a>
                             <?php
                         }
 
@@ -69,11 +69,11 @@
         </div>
         <footer>
             <div class="nav-left">
-                <p>&copy; 2020 - Forum CDA</p>
+                <p class="p">&copy; 2020 - Forum CDA</p>
             </div>
             <div class="nav-right">
-                <a class="href" href="model/home/forumRules.php">Règlement du forum</a>
-                <a class="href" href="model/home/mentions_legal.php">Mentions légales</a>
+                <a class="href" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
+                <a class="href" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
             </div>
             <!--<button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois-->
         </footer>
