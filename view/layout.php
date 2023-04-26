@@ -53,7 +53,10 @@
                             ?>
                             <a class="href" href="index.php?ctrl=security&action=loginForm">Connexion</a>
                             <a class="href" href="index.php?ctrl=security&action=registerForm">Inscription</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Topics</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listPosts">Liste des Messages</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégorie</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listUsers">Liste des Utilisateurs</a>
                             <?php
                         }
 

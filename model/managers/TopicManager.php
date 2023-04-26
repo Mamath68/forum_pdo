@@ -17,39 +17,39 @@ class TopicManager extends Manager
         parent::connect();
     }
 
-//     public function findOneByCategories($id)
-//     {
-//         $sql = "SELECT c.title, c.creationDate
-//             FROM " . $this->tableName . "c
-//             WHERE id_category = :id";
+    public function findOneByCategories($id)
+    {
+        $sql = "SELECT c.title
+            FROM " . $this->tableName . "c
+            WHERE id_category = :id";
 
-//         return $this->getMultipleResults(
-//             DAO::select($sql, ['id=>$id'], true),
-//             $this->className
-//         );
-//     }
-//     public function findTopicsByUser($id)
-//     {
-//         $sql = "SELECT c.title, c.creationDate
-//             FROM " . $this->tableName . "c
-//             WHERE id_user = :id";
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id=>$id'], true),
+            $this->className
+        );
+    }
+    public function findTopicsByUser($id)
+    {
+        $sql = "SELECT c.title, c.creationDate
+            FROM " . $this->tableName . "u
+            WHERE id_user = :id";
 
-//         return $this->getMultipleResults(
-//             DAO::select($sql, ['id' => $id], true),
-//             $this->className
-//         );
-//     }
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id], true),
+            $this->className
+        );
+    }
 
-//     public function addTopic($data)
-//     {
+    public function addTopic($data)
+    {
 
-//         if (isset($_POST)) {
-//             $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//             $id_category = filter_input(INPUT_POST, 'id_category', FILTER_VALIDATE_INT);
-//             $id_user = $_SESSION['id_user'];
+        if (isset($_POST)) {
+            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $id_category = filter_input(INPUT_POST, 'id_category', FILTER_VALIDATE_INT);
+            $id_user = $_SESSION['id_utilisateur'];
 
-//             $sql = ('INSERT INTO topic (title,id_user, body) VALUES (:title,:category, :body)');
-//         }
-//     }
+            $sql = ('INSERT INTO topic (title, body, id_utilisateur,id_category) VALUES (:title,:body,:id_utilisateur,:id_category)');
+        }
+    }
 
 }

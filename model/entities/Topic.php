@@ -7,8 +7,10 @@
 
         private $id;
         private $title;
-        private $user;
+        private $body;
         private $creationdate;
+        private $user;
+        private $category;
         private $closed;
 
         public function __construct($data){         
@@ -54,7 +56,35 @@
 
                 return $this;
         }
+        /**
+         * Get the value of title
+         */ 
+        public function getBody()
+        {
+                return $this->body;
+        }
 
+        /**
+         * Set the value of title
+         *
+         * @return  self
+         */ 
+        public function setBody($body)
+        {
+                $this->body = $body;
+
+                return $this;
+        }
+
+        public function getCreationdate(){
+            $formattedDate = $this->creationdate->format("d/m/Y à H:i:s");
+            return $formattedDate;
+        }
+
+        public function setCreationdate($date){
+            $this->creationdate = new \DateTime($date);
+            return $this;
+        }
         /**
          * Get the value of user
          */ 
@@ -74,34 +104,42 @@
 
                 return $this;
         }
-
-        public function getCreationdate(){
-            $formattedDate = $this->creationdate->format("d/m/Y, H:i:s");
-            return $formattedDate;
-        }
-
-        public function setCreationdate($date){
-            $this->creationdate = new \DateTime($date);
-            return $this;
-        }
-
-        /**
-         * Get the value of closed
-         */ 
-        public function getClosed()
+        
+        public function getCategory()
         {
-                return $this->closed;
+                return $this->category;
         }
 
         /**
-         * Set the value of closed
+         * Set the value of user
          *
          * @return  self
          */ 
-        public function setClosed($closed)
+        public function setCategory($category)
         {
-                $this->closed = $closed;
+                $this->category = $category;
 
                 return $this;
         }
+
+
+        // /**
+        //  * Get the value of closed
+        //  */ 
+        // public function getClosed()
+        // {
+        //         return $this->closed;
+        // }
+
+        // /**
+        //  * Set the value of closed
+        //  *
+        //  * @return  self
+        //  */ 
+        // public function setClosed($closed)
+        // {
+        //         $this->closed = $closed;
+
+        //         return $this;
+        // }
     }

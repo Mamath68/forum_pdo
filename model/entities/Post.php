@@ -1,16 +1,17 @@
 <?php
 
-    namespace Model\Entities;
+namespace Model\Entities;
 
-    use App\Entity;
+use App\Entity;
 
-    final class Post extends Entity{
+final class Post extends Entity
+{
 
-        private $id;
-        private $body;
-        private $creationdate;
-        private $topic;
-        private $user;
+    private $id;
+    private $body;
+    private $creationdate;
+    private $topic;
+    private $user;
 
     public function __construct($data)
     {
@@ -54,6 +55,17 @@
         return $this;
     }
 
+    public function getCreationDate()
+    {
+        $formattedDate = $this->creationdate->format("d/m/Y à H:i:s");
+        return $formattedDate;
+    }
+
+    public function setCreationDate($date)
+    {
+        $this->creationdate = new \DateTime($date);
+        return $this;
+    }
 
     public function getTopic()
     {
@@ -85,15 +97,4 @@
         return $this;
     }
 
-    public function getCreationdate()
-    {
-        $formattedDate = $this->creationdate->format("d/m/Y, H:i:s");
-        return $formattedDate;
-    }
-
-    public function setCreationdate($date)
-    {
-        $this->creationdate = new \DateTime($date);
-        return $this;
-    }
 }

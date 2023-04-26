@@ -1,14 +1,15 @@
 <?php
+
 namespace Model\Entities;
 
 use App\Entity;
 
-final class User extends Entity
+final class Category extends Entity
 {
 
     private $id;
     private $title;
-
+    private $creationdate;
 
     public function __construct($data)
     {
@@ -49,6 +50,18 @@ final class User extends Entity
     {
         $this->title = $title;
 
+        return $this;
+    }
+
+    public function getCreationDate()
+    {
+        $formattedDate = $this->creationdate->format("d/m/Y à H:i:s");
+        return $formattedDate;
+    }
+
+    public function setCreationDate($date)
+    {
+        $this->creationdate = new \DateTime($date);
         return $this;
     }
 }
