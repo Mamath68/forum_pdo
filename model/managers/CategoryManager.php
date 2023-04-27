@@ -9,7 +9,7 @@ use Model\Controller\ForumController;
 class CategoryManager extends Manager
 {
 
-    protected $className = "Model\Entities\catagory";
+    protected $className = "Model\Entities\Category";
     protected $tableName = "category";
 
     public function __construct()
@@ -17,28 +17,28 @@ class CategoryManager extends Manager
         parent::connect();
     }
 
-    // public function findPostsByTopic($id)
-    // {
-    //     $sql = "SELECT a.message, a.creationDate
-    //         FROM " . $this->tableName . "a
-    //         WHERE id_topic = :id";
+// public function findPostsByTopic($id)
+// {
+//     $sql = "SELECT a.message, a.creationDate
+//         FROM " . $this->tableName . "a
+//         WHERE id_topic = :id";
 
-    //     return $this->getMultipleResults(
-    //         DAO::select($sql, ['id=>$id'], true),
-    //         $this->className
-    //     );
-    // }
+//     return $this->getMultipleResults(
+//         DAO::select($sql, ['id=>$id'], true),
+//         $this->className
+//     );
+// }
 
-    // public function findTopicsByUser($id)
-    // {
-    //     $sql = "SELECT a.message, a.creationDate
-    //         FROM " . $this->tableName . "a
-    //         WHERE id_user = :id";
+// public function findTopicsByUser($id)
+// {
+//     $sql = "SELECT a.message, a.creationDate
+//         FROM " . $this->tableName . "a
+//         WHERE id_user = :id";
 
-    //     return $this->getMultipleResults(
-    //         DAO::select($sql, ['id'=>$id], true),
-    //         $this->className
-    //     );
-    // }
-    
+//     return $this->getMultipleResults(
+//         DAO::select($sql, ['id'=>$id], true),
+//         $this->className
+//     );
+// }
+
 }

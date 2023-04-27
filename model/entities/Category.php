@@ -9,7 +9,7 @@ final class Category extends Entity
 
     private $id;
     private $title;
-    private $creationdate;
+    private $closed;
 
     public function __construct($data)
     {
@@ -53,15 +53,14 @@ final class Category extends Entity
         return $this;
     }
 
-    public function getCreationDate()
+    public function getClosed()
     {
-        $formattedDate = $this->creationdate->format("d/m/Y à H:i:s");
-        return $formattedDate;
+        return $this->closed;
     }
 
-    public function setCreationDate($date)
+    public function setClosed($closed)
     {
-        $this->creationdate = new \DateTime($date);
+        $this->closed = $closed;
         return $this;
     }
 }

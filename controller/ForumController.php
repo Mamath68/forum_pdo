@@ -7,8 +7,9 @@ use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
-use Model\Managers\UserManager;
 use Model\Managers\CategoryManager;
+use Model\Managers\UserManager;
+
 
 class ForumController extends AbstractController implements ControllerInterface
 {
@@ -53,10 +54,8 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
 
             "view" => VIEW_DIR . "forum/listCategorys.php",
-
             "data" => [
-
-                "categorys" => $categoryManager->findAll(["creationDate", "DESC"])
+                "categorys" => $categoryManager->findAll(["title", "DESC"])
 
             ]
         ];

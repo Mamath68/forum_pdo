@@ -15,7 +15,6 @@ class HomeController extends AbstractController implements ControllerInterface
     public function index()
     {
 
-
         return [
             "view" => VIEW_DIR . "home.php"
         ];
@@ -62,8 +61,8 @@ class HomeController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "security/detailUser.php",
             "data" => [
                 "user" => $userManager->findOneById($id),
-                "posts" => $postManager->findTopicsByUser($id),
-                "topics" => $topicManager->findTopicsByUser($id)
+                "post" => $postManager->findTopicsByUser($id),
+                "topic" => $topicManager->findTopicsByUser($id)
             ]
         ];
         // redirectTo("home","listTopics");

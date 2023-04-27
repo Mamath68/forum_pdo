@@ -3,113 +3,69 @@ namespace Model\Entities;
 
 use App\Entity;
 
-final class User extends Entity
-{
+final class User extends Entity{
 
     private $id;
     private $pseudo;
     private $email;
-    private $password;
-    private $roleUser;
     private $dateInscription;
+    private $roleUser;
 
-
-    public function __construct($data)
-    {
+    public function __construct($data){
         $this->hydrate($data);
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
-    {
+    public function getId(){
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
-    {
+    public function setId($id){
         $this->id = $id;
-
-        return $this;
     }
 
-    /**
-     */
-    public function getPseudo()
-    {
+    public function getPseudo(){
         return $this->pseudo;
     }
 
-    /**
-     * @return  self
-     */
-    public function setPseudo($pseudo)
-    {
-        $this->pseudo = $pseudo;
-
-        return $this;
+    public function setPseudo($pseudo){
+        $this->pseudo = ucfirst($pseudo);
     }
 
-
-    public function getEmail()
-    {
+    public function getEmail(){
         return $this->email;
     }
 
-    /**
-     * @return  self
-     */
-    public function setEmail($email)
-    {
+    public function setEmail($email){
         $this->email = $email;
-
-        return $this;
     }
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @return  self
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getRoleUser()
-    {
-        return $this->roleUser;
-    }
-
-    /**
-     * @return  self
-     */
-    public function setRoleUser($roleUser)
-    {
-        $this->roleUser = $roleUser;
-
-        return $this;
-    }
-    public function getDateInscription()
-    {
-        $formattedDate = $this->dateInscription->format("d/m/Y, H:i:s");
+    public function getDateInscription(){
+        $formattedDate = $this->dateInscription->format("d/m/Y à H:i:s");
         return $formattedDate;
     }
 
-    public function setDateInscription($date)
-    {
+    public function setDateInscription($date){
         $this->dateInscription = new \DateTime($date);
         return $this;
+    }
+
+    public function getRoleUser(){
+        return $this->roleUser;
+    }
+
+    public function setRoleUser($roleUser){
+
+        $this->roleUser = json_decode($roleUser);
+        if (empty($this->roleUser)) {
+            $this->roleUser[] = "ROLE_USER";
+        }
+    }
+
+    public function hasRole($roleUser){
+        return in_array($roleUser, $this->getRoleUser());
+    }
+
+    public function __toString(){
+        return $this->pseudo;
     }
 }

@@ -66,7 +66,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
                         ) {
                             $message = "Enregistrement réussi !";
                             return [
-                                "view"=>VIEW_DIR."security/login.php",
+                                "view" => VIEW_DIR . "security/login.php",
                                 "message" => $message
                             ];
                         }
@@ -77,7 +77,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
             }
         }
         return [
-            "view"=>VIEW_DIR."security/register.php",
+            "view" => VIEW_DIR . "security/register.php",
             "message" => $message
         ];
     }
