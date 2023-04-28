@@ -33,9 +33,9 @@
                         <?php
                         if (App\Session::isAdmin()) {
                             ?>
-                            <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                           <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
 
-                            <?php
+                             <?php
                         }
                         ?>
                     </div>
@@ -44,23 +44,17 @@
 
                         if (App\Session::getUser()) {
                             ?>
-                            <a class="href" href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;
+                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
                                 <?= App\Session::getUser() ?>
                             </a>
                             <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
                             <?php
                         } else {
                             ?>
-                            <a class="href" href="index.php?ctrl=security&action=loginForm">Connexion</a>
-                            <a class="href" href="index.php?ctrl=security&action=registerForm">Inscription</a>
                             <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listPosts">Liste des Messages</a>
                             <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégorie</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listUsers">Liste des Utilisateurs</a>
                             <?php
                         }
-
-
                         ?>
                     </div>
                 </nav>

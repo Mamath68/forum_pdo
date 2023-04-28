@@ -24,7 +24,10 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     public function index()
     {
-
+        return [
+            "view" => VIEW_DIR . "home.php",
+            "data" => null,
+        ];
     }
     public function registerForm()
     {
@@ -49,7 +52,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
             $confirmpassword = filter_input(INPUT_POST, "confirmpassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
             if ($nickname && $password && $email) {
-                if (($password == $confirmpassword) and strlen($password) >= 8) {
+                if (($password == $confirmpassword) and strlen($password) >= 3) {
                     $manager = new UserManager();
                     $user = $manager->findOneByPseudo($nickname);
 
@@ -101,19 +104,20 @@ class SecurityController extends AbstractController implements ControllerInterfa
                 $manager = new UserManager();
                 $user = $manager->findOneByPseudo($nickname);
 
-                $datapass = $user->getPassword();
+                $pass = $user->getPassword();
+
                 if ($user) {
-                    if (password_verify($password, $datapass)) {
-                        session::setUser($user);
-                        header('Location:index.php');
+                    if (password_verify($password, $pass)) {
+                        session :: setUser($user);
+                        
+                        header('Location:index.php?ctrl=security&action=index');
                     }
                 }
             }
         }
-        var_dump($_POST);
-        return [
-            "view" => VIEW_DIR . "security/login.php"
-        ];
+        // var_dump($_POST);
+        
+    
     }
 
     public function modifyPassword()
@@ -123,9 +127,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     public function logout()
     {
-        session_start();
-        session_destroy();
-        header('location: layout.php');
-        exit;
+        unset($_SESSION['user']);
+        header('location: index.php?ctrl=security&action=index');
     }
 }

@@ -3,7 +3,6 @@ namespace Model\Managers;
 
 use App\Manager;
 use App\DAO;
-use Controller\ForumController;
 use Controller\HomeController;
 
 
@@ -21,7 +20,7 @@ class UserManager extends Manager
     public function findOneByPseudo($data)
     {
 
-        $sql = "SELECT u.pseudo
+        $sql = "SELECT u.pseudo, u.password, u.roleUser
         FROM " . $this->tableName . " u
         WHERE  u.pseudo = :pseudo
         ";
