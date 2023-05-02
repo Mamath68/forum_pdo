@@ -20,7 +20,7 @@ class UserManager extends Manager
     public function findOneByPseudo($data)
     {
 
-        $sql = "SELECT u.pseudo, u.password, u.roleUser
+        $sql = "SELECT *
         FROM " . $this->tableName . " u
         WHERE  u.pseudo = :pseudo
         ";

@@ -8,7 +8,6 @@ use App\ControllerInterface;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
 use Model\Managers\CategoryManager;
-use Model\Managers\UserManager;
 
 
 class ForumController extends AbstractController implements ControllerInterface
@@ -30,6 +29,28 @@ class ForumController extends AbstractController implements ControllerInterface
             ]
         ];
     }
+    public function addTopic()
+    {
+        $topicManager = new TopicManager();
+        if (!empty($_POST)) {
+
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $topic = $topicManager->findOneByTitle($title);
+
+            if (!$topic) {
+                $topicManager->add([
+                    "title" => $title,
+                ]);
+            }
+        }
+        return [
+            "view" => VIEW_DIR . "forum/listTopics.php",
+            "data" => [
+                "topics" => $topicManager->findAll()
+            ]
+        ];
+    }
     public function listPosts()
     {
 
@@ -46,6 +67,29 @@ class ForumController extends AbstractController implements ControllerInterface
             ]
         ];
     }
+    public function addPost()
+    {
+        $postManager = new PostManager();
+        if (!empty($_POST)) {
+
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $post = $postManager->findOneByTitle($title);
+
+            if (!$post) {
+                $postManager->add([
+                    "title" => $title,
+                ]);
+            }
+        }
+        return [
+            "view" => VIEW_DIR . "forum/listPosts.php",
+            "data" => [
+                "categorys" => $postManager->findAll()
+            ]
+        ];
+    }
+
     public function listCategorys()
     {
 
@@ -55,24 +99,29 @@ class ForumController extends AbstractController implements ControllerInterface
 
             "view" => VIEW_DIR . "forum/listCategorys.php",
             "data" => [
-                "categorys" => $categoryManager->findAll(["title", "DESC"])
-
+                "categorys" => $categoryManager->findAll(["title", "ASC"])
             ]
         ];
     }
-    public function listUsers()
+    public function addCategory()
     {
+        $categoryManager = new CategoryManager();
+        if (!empty($_POST)) {
 
-        $userManager = new UserManager();
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            $category = $categoryManager->findOneByTitle($title);
+
+            if (!$category) {
+                $categoryManager->add([
+                    "title" => $title,
+                ]);
+            }
+        }
         return [
-
-            "view" => VIEW_DIR . "forum/listUsers.php",
-
+            "view" => VIEW_DIR . "forum/listCategorys.php",
             "data" => [
-
-                "users" => $userManager->findAll(["dateInscription", "DESC"])
-
+                "categorys" => $categoryManager->findAll()
             ]
         ];
     }

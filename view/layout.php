@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -33,9 +33,9 @@
                         <?php
                         if (App\Session::isAdmin()) {
                             ?>
-                           <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                            <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
 
-                             <?php
+                            <?php
                         }
                         ?>
                     </div>
@@ -44,18 +44,22 @@
 
                         if (App\Session::getUser()) {
                             ?>
-                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span
+                                    class="fas fa-user"></span>&nbsp;
                                 <?= App\Session::getUser() ?>
                             </a>
-                            <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
                             <?php
                         } else {
                             ?>
-                            <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégorie</a>
                             <?php
                         }
+
                         ?>
+                        <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégories</a>
+                        <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
+                        <a class="href" href="index.php?ctrl=forum&action=listPosts">Liste des Messages</a>
+
                     </div>
                 </nav>
             </header>

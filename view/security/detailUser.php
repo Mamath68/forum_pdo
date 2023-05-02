@@ -1,25 +1,23 @@
-<?php
-
-$users = $result["data"]['users'];
-
-?>
-
-<h1>Liste des Utilisateur</h1>
-
-<?php
-echo '<table class="table text-center">
-    <thead>
-      <tr>
-      <th scope="col">Pseudo</th>
-      <th scope="col">Date Inscription</th>
-      </tr>
-    </thead>';
-    foreach ($users as $user) {
-  echo '<tbody>
-      <tr>
-      <td>' .$user->getPseudo() . '</td>
-      <td>' . $user->getDateInscription() . '</td>
-      </tr>';
-}
-echo ' </tbody>
-      </table>';
+<div class="card text-center" style="width: 20em; margin-left: 40%;">
+    <span class="fas fa-user"></span>
+    <div class="card-body">
+        <h5 class="card-title">
+            <?= App\Session::getUser()->getPseudo() ?>
+        </h5>
+        <p class="card-text">Voici mes Sujets de Conversation</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Addresse Email
+            <?= App\Session::getUser()->getEmail() ?>
+        </li>
+        <li class="list-group-item">
+            Date D'inscription <br>
+            <?= App\Session::getUser()->getDateInscription() ?>
+        </li>
+    </ul>
+    <div class="card-body">
+        <a href="index.php?ctrl=forum&action=listTopics" class="card-link">Liens vers mes Sujets de Conversation</a>
+        <a href="index.php?ctrl=security&action=logout" class="card-link">Déconnexion</a>
+    </div>
+</div>

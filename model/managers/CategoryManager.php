@@ -17,28 +17,27 @@ class CategoryManager extends Manager
         parent::connect();
     }
 
-// public function findPostsByTopic($id)
-// {
-//     $sql = "SELECT a.message, a.creationDate
-//         FROM " . $this->tableName . "a
-//         WHERE id_topic = :id";
+    public function findOneByTitle($title)
+    {
+        $sql = "SELECT *
+    FROM " . $this->tableName . " t
+    WHERE t.title = :title";
 
-//     return $this->getMultipleResults(
-//         DAO::select($sql, ['id=>$id'], true),
-//         $this->className
-//     );
-// }
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['title' => $title], true),
+            $this->className
+        );
+    }
 
-// public function findTopicsByUser($id)
-// {
-//     $sql = "SELECT a.message, a.creationDate
-//         FROM " . $this->tableName . "a
-//         WHERE id_user = :id";
+//     public function findTopicsByUser($id)
+//     {
+//         $sql = "SELECT a.body, a.creationDate
+//     FROM " . $this->tableName . " a
+//     WHERE id_user = :id";
 
-//     return $this->getMultipleResults(
-//         DAO::select($sql, ['id'=>$id], true),
-//         $this->className
-//     );
-// }
-
+//         return $this->getMultipleResults(
+//             DAO::select($sql, ['id' => $id], true),
+//             $this->className
+//         );
+//     }
 }

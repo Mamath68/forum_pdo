@@ -1,7 +1,5 @@
 <?php
-
-$categorys = $result["data"]['categorys'];
-
+$categorys = $result["data"]["categorys"];
 ?>
 
 <h1>Liste des Catégorie</h1>
@@ -14,11 +12,24 @@ echo '<table class="table text-center">
       <th scope="col">Titre de la Catégorie</th>
       </tr>
     </thead>';
-    foreach ($categorys as $category) {
+foreach ($categorys as $category) {
   echo '<tbody>
       <tr>
-      <td>' .$category->getTitle() . '</td>
+      <td>' . $category->getTitle() . '</td>
       </tr>';
 }
 echo ' </tbody>
       </table>';
+?>
+
+<?php
+
+if (App\Session::getUser()) {
+  include_once("addCategory.php");
+} else {
+?>
+<?php
+}
+?>
+
+</div>

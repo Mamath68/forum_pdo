@@ -112,6 +112,12 @@ class SecurityController extends AbstractController implements ControllerInterfa
                         
                         header('Location:index.php?ctrl=security&action=index');
                     }
+                    else {
+                        return [
+                            "view" => VIEW_DIR . "security/login.php",
+                            "data" => null,
+                        ];
+                    }
                 }
             }
         }

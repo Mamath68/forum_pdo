@@ -5,9 +5,7 @@ $topics = $result["data"]['topics'];
 ?>
 
 <h1>Liste des Sujets</h1>
-
 <?php
-
 echo '<table class="table text-center">
     <thead>
       <tr>
@@ -16,8 +14,8 @@ echo '<table class="table text-center">
       <th scope="col">Date et Heurs</th>
       </tr>
     </thead>';
-    foreach ($topics as $topic) {
-    echo '<tbody>
+foreach ($topics as $topic) {
+  echo '<tbody>
       <tr>
       <td>' . $topic->getTitle() . '</td>
       <td>' . $topic->getBody() . '</td>
@@ -26,3 +24,16 @@ echo '<table class="table text-center">
 }
 echo ' </tbody>
       </table>';
+?>
+<?php
+
+if (App\Session::getUser()) {
+  include_once("addTopics.php");
+
+} else {
+?>
+<?php
+}
+?>
+
+</div>

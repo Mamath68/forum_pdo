@@ -1,6 +1,7 @@
 <?php
 
 $posts = $result["data"]['posts'];
+// $topics = $result["data"]['topics'];
 
 ?>
 
@@ -17,7 +18,7 @@ echo '<table class="table text-center">
       </tr>
     </thead>';
 foreach ($posts as $post) {
-    echo '<tbody>
+  echo '<tbody>
       <tr>
       <td>' . $post->getTopic() . '</td>
       <td>' . $post->getBody() . '</td>
@@ -26,3 +27,17 @@ foreach ($posts as $post) {
 }
 echo ' </tbody>
       </table>';
+?>
+<?php
+
+if (App\Session::getUser()) {
+
+  include_once("addPost.php");
+
+} else {
+?>
+<?php
+}
+?>
+
+</div>

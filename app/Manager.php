@@ -60,8 +60,7 @@ abstract class Manager
                     VALUES
                     ('" . implode("','", $values) . "')";
         //"'Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com'"
-        /*
-        INSERT INTO user (username,password,email) VALUES ('Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com') 
+        /* INSERT INTO user (username,password,email) VALUES ('Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com') 
         */
         try {
             return DAO::insert($sql);

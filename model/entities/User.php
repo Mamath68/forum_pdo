@@ -9,7 +9,7 @@ final class User extends Entity
     private $id;
     private $pseudo;
     private $email;
-    private $dateInscription;
+    private \DateTime $dateInscription;
     private $roleUser;
     private $password;
 
@@ -48,18 +48,26 @@ final class User extends Entity
         $this->email = $email;
     }
 
+    // public function getDateInscription()
+    // {
+    //     $formattedDate = $this->dateInscription->format("d/m/Y à H:i:s");
+    //     return $formattedDate;
+    // }
+    
+    /**
+     * Get the value of dateInscription
+     */ 
     public function getDateInscription()
     {
-        $formattedDate = $this->dateInscription->format("d/m/Y à H:i:s");
-        return $formattedDate;
+        return $this->dateInscription->format("d/m/Y à H:i:s");
     }
-
+    
     public function setDateInscription($date)
     {
         $this->dateInscription = new \DateTime($date);
         return $this;
     }
-
+    
     public function getRoleUser()
     {
         if (!empty($this->roleUser)) {
@@ -100,4 +108,5 @@ final class User extends Entity
         $this->password = $password;
 
     }
+
 }
