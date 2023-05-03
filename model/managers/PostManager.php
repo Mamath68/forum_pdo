@@ -17,14 +17,14 @@ class PostManager extends Manager
         parent::connect();
     }
 
-    public function findOneBypost($title)
+    public function findOneByPost($body)
     {
         $sql = "SELECT *
     FROM " . $this->tableName . " t
-    WHERE t.title = :title";
+    WHERE t.body = :body";
 
         return $this->getMultipleResults(
-            DAO::select($sql, ['title' => $title], true),
+            DAO::select($sql, ['body' => $body], true),
             $this->className
         );
     }

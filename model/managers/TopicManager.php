@@ -19,37 +19,36 @@ class TopicManager extends Manager
 
     public function findOneByTopic($title)
     {
-        $sql = "SELECT t.title
+        $sql = "SELECT *
             FROM " . $this->tableName . " t
-            WHERE id_topic = :id";
+            WHERE t.title = :title";
 
-        return $this->getMultipleResults(
-            DAO::select($sql, ['id=>$id'], true),
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['title' => $title], true),
             $this->className
         );
     }
-    public function findTopicsByUser($id)
+    public function findOneById($id)
     {
-        $sql = "SELECT u.title, u.creationDate
-            FROM " . $this->tableName . " u
-            WHERE id_utilisateur = :id";
+        $sql = "SELECT *
+            FROM " . $this->tableName . " c
+            WHERE c.id_category = :id";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }
+    public function findTopicsByUser($id)
+    {
+        $sql = "SELECT *
+            FROM " . $this->tableName . " u
+            WHERE u.id_utilisateur = :id";
 
-// public function addTopic($data)
-// {
-
-//     if (isset($_POST)) {
-//         $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//         $id_category = filter_input(INPUT_POST, 'id_category', FILTER_VALIDATE_INT);
-//         $id_user = $_SESSION['id_utilisateur'];
-
-//         $sql = ('INSERT INTO topic (title, id_utilisateur,id_category) VALUES (:title,:id_utilisateur,:id_category)');
-//     }
-// }
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id], true),
+            $this->className
+        );
+    }
 
 }

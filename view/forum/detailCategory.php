@@ -16,7 +16,7 @@ echo '<table class="table text-center">
 foreach ($topics as $topic) {
   echo '<tbody>
       <tr>
-      <td>' . $topic->getTitle() . '</td>
+      <td><a href=""></a>' . $topic->getTitle() . '</td>
       <td>' . $topic->getCreationdate() . '</td>
       </tr>';
 }

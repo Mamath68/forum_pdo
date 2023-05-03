@@ -20,8 +20,8 @@ class CategoryManager extends Manager
     public function findOneByTitle($title)
     {
         $sql = "SELECT *
-    FROM " . $this->tableName . " t
-    WHERE t.title = :title";
+            FROM " . $this->tableName . " t
+            WHERE t.title = :title";
 
         return $this->getOneOrNullResult(
             DAO::select($sql, ['title' => $title], true),
@@ -29,11 +29,11 @@ class CategoryManager extends Manager
         );
     }
 
-    public function findTopicsByUser($id)
+    public function findTopicByCategory($id)
     {
-        $sql = "SELECT a.body, a.creationDate
-    FROM " . $this->tableName . " a
-    WHERE id_user = :id";
+        $sql = "SELECT *
+        FROM " . $this->tableName . " t
+        WHERE t.id_topic = :id";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true),

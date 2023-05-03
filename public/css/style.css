@@ -24,9 +24,17 @@ ul li {
 }
 
 main {
-    min-height: 81vh;
+    min-height: 78.8vh;
 }
 
+.form-label{
+    color: black;
+    opacity: 1;
+}
+
+.mb-3 {
+    text-align: center;
+}
 a {
     text-decoration: none;
 }
@@ -65,10 +73,8 @@ footer {
 .form-control {
     width: 50%;
     border-radius: 2rem;
-}
-
-form {
-    margin-left: 30%;
+    margin-left: 390px;
+    padding: 1em;
 }
 
 .addTopic {
@@ -77,7 +83,7 @@ form {
 }
 
 button[type='submit']{
-    margin-left: 20%;
+    margin-left: 50%;
 }
 /* img {
     width: 30%;

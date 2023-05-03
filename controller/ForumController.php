@@ -13,46 +13,51 @@ use Model\Managers\CategoryManager;
 class ForumController extends AbstractController implements ControllerInterface
 {
 
+    public function listCategorys()
+    {
+
+        $categoryManager = new CategoryManager();
+        $postManager = new PostManager();
+        $topicManager = new TopicManager();
+        
+        return [
+            
+            "view" => VIEW_DIR . "forum/listCategorys.php",
+            "data" => [
+                "categorys" => $categoryManager->findAll(["id_category", "ASC"]),
+                "topics" => $topicManager->findAll(["creationDate", "DESC"]),
+                "posts" => $postManager->findAll(["creationDate", "DESC"])
+                ]
+            ];
+        }
+        public function detailCategory($id)
+        {
+            
+            $topicManager = new TopicManager();
+            $topic = $topicManager->findOneById($id);
+        return [
+            "view" => VIEW_DIR . "forum/detailCategory.php",
+            "data" => [
+                "topics" => $topicManager->findAll(),
+            ]
+        ];
+    }
+
     public function listTopics()
     {
 
         $topicManager = new TopicManager();
+        $categoryManager = new CategoryManager();
+        $postManager = new PostManager();
 
         return [
 
             "view" => VIEW_DIR . "forum/listTopics.php",
 
             "data" => [
-
-                "topics" => $topicManager->findAll(["creationDate", "DESC"])
-
-            ]
-        ];
-    }
-    public function addTopic()
-    {
-        $topicManager = new TopicManager();
-        if (!empty($_POST)) {
-
-            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $id_user = filter_input(INPUT_POST, "id_utilisateur", FILTER_VALIDATE_INT);
-            $id_category = filter_input(INPUT_POST, "id_category", FILTER_VALIDATE_INT);
-
-            $topic = $topicManager->findOneByTopic($title);
-            $topic = $topicManager->findTopicsByUser($title);
-
-            if (!$topic) {
-                $topicManager->add([
-                    "title" => $title,
-                    "id_utilisateur" => $id_user,
-                    "id_category" => $id_category
-                ]);
-            }
-        }
-        return [
-            "view" => VIEW_DIR . "forum/listTopics.php",
-            "data" => [
-                "topics" => $topicManager->findAll()
+                "topics" => $topicManager->findAll(["creationDate", "DESC"]),
+                "posts" => $postManager->findAll(["creationDate", "DESC"]),
+                "categorys" => $categoryManager->findAll(["title", "ASC"])
             ]
         ];
     }
@@ -60,54 +65,21 @@ class ForumController extends AbstractController implements ControllerInterface
     {
 
         $postManager = new PostManager();
-
-        return [
-
-            "view" => VIEW_DIR . "forum/listPosts.php",
-
-            "data" => [
-
-                "posts" => $postManager->findAll(["creationDate", "DESC"])
-
-            ]
-        ];
-    }
-    // public function addPost()
-    // {
-    //     $postManager = new PostManager();
-    //     if (!empty($_POST)) {
-
-    //         $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-    //         $post = $postManager->findOneByTitle($title);
-
-    //         if (!$post) {
-    //             $postManager->add([
-    //                 "title" => $title,
-    //             ]);
-    //         }
-    //     }
-    //     return [
-    //         "view" => VIEW_DIR . "forum/listPosts.php",
-    //         "data" => [
-    //             "categorys" => $postManager->findAll()
-    //         ]
-    //     ];
-    // }
-
-    public function listCategorys()
-    {
-
+        $topicManager = new TopicManager();
         $categoryManager = new CategoryManager();
 
         return [
 
-            "view" => VIEW_DIR . "forum/listCategorys.php",
+            "view" => VIEW_DIR . "forum/detailTopic.php",
+
             "data" => [
+                "posts" => $postManager->findAll(["creationDate", "DESC"]),
+                "topics" => $topicManager->findAll(["creationDate", "DESC"]),
                 "categorys" => $categoryManager->findAll(["title", "ASC"])
             ]
         ];
     }
+
     public function addCategory()
     {
         $categoryManager = new CategoryManager();
@@ -127,6 +99,60 @@ class ForumController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "forum/listCategorys.php",
             "data" => [
                 "categorys" => $categoryManager->findAll()
+            ]
+        ];
+    }
+
+    public function addTopic($data)
+    {
+        $topicManager = new TopicManager();
+        if (!empty($_POST)) {
+
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $category = filter_input(INPUT_POST, "id_category", FILTER_VALIDATE_INT);
+            $user = $_SESSION['id_utilisateur'];
+
+            $topic = $topicManager->findOneByTopic($title);
+
+            if (!$topic) {
+                $topicManager->add([
+                    "title" => $title,
+                    "id_category" => $category,
+                    "id_utilisateur" => Session::getUser()->getId()
+                ]);
+            }
+        }
+        return [
+            "view" => VIEW_DIR . "forum/listTopics.php",
+            "data" => [
+                "topics" => $topicManager->findAll()
+            ]
+        ];
+    }
+
+    public function addPost()
+    {
+        $postManager = new PostManager();
+        if (!empty($_POST)) {
+
+            $body = filter_input(INPUT_POST, "body", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $topic = filter_input(INPUT_POST, "id_sujet", FILTER_VALIDATE_INT);
+            $user = $_SESSION['id_utilisateur'];
+
+            $post = $postManager->findOneByPost($body);
+
+            if (!$post) {
+                $postManager->add([
+                    "body" => $body,
+                    "id_sujet" => $topic,
+                    "id_utilisateur" => $user
+                ]);
+            }
+        }
+        return [
+            "view" => VIEW_DIR . "forum/detailTopic.php",
+            "data" => [
+                "categorys" => $postManager->findAll()
             ]
         ];
     }

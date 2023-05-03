@@ -4,6 +4,6 @@
             <label for="exampleFormControlTextarea1" class="form-label">Entrez Votre Message</label>
             <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" class="btn btn-primary">Repondre</button>
     </form>
 </div>

@@ -56,7 +56,6 @@
                         ?>
                         <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégories</a>
                         <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
-                        <a class="href" href="index.php?ctrl=forum&action=listPosts">Liste des Messages</a>
                     </div>
                 </nav>
             </header>
@@ -82,8 +81,8 @@
         $(document).ready(function () {
             $(".message").each(function () {
                 if ($(this).text().length > 0) {
-                    $(this).slideDown(500, function () {
-                        $(this).delay(3000).slideUp(500)
+                    $(this).slideDown(0, function () {
+                        $(this).delay(0).slideUp(0)
                     })
                 }
             })

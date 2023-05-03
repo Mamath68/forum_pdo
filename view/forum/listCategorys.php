@@ -5,31 +5,28 @@ $categorys = $result["data"]["categorys"];
 <h1>Liste des Catégorie</h1>
 
 <?php
-
-echo '<table class="table text-center">
-    <thead>
-      <tr>
-      <th scope="col">Titre de la Catégorie</th>
-      </tr>
-    </thead>';
+echo '
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <section>';
 foreach ($categorys as $category) {
-  echo '<tbody>
-      <tr>
-      <td>' . $category->getTitle() . '</td>
-      </tr>';
+  echo '<div class="text-center"><br><br>
+        <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</div>';
 }
-echo ' </tbody>
-      </table>';
+echo '
+    </section>
+    </div>
+  </div>
+</div>';
 ?>
 
 <?php
 
-if (App\Session::getUser()) {
+if (App\Session::isAdmin()) {
   include_once("addCategory.php");
 } else {
 ?>
 <?php
 }
 ?>
-
-</div>
