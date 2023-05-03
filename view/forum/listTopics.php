@@ -10,15 +10,13 @@ echo '<table class="table text-center">
     <thead>
       <tr>
       <th scope="col">Sujet</th>
-      <th scope="col">Message</th>
-      <th scope="col">Date et Heurs</th>
+      <th scope="col">Date/Heures de création</th>
       </tr>
     </thead>';
 foreach ($topics as $topic) {
   echo '<tbody>
       <tr>
       <td>' . $topic->getTitle() . '</td>
-      <td>' . $topic->getBody() . '</td>
       <td>' . $topic->getCreationdate() . '</td>
       </tr>';
 }

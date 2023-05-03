@@ -17,7 +17,7 @@ class PostManager extends Manager
         parent::connect();
     }
 
-    public function findOneByTitle($title)
+    public function findOneBypost($title)
     {
         $sql = "SELECT *
     FROM " . $this->tableName . " t
@@ -29,16 +29,16 @@ class PostManager extends Manager
         );
     }
 
-    // public function findTopicsByUser($id)
-    // {
-    //     $sql = "SELECT a.body, a.creationDate
-    //         FROM " . $this->tableName . " a
-    //         WHERE id_utilisateur = :id";
+    public function findTopicsByUser($id)
+    {
+        $sql = "SELECT a.body, a.creationDate
+            FROM " . $this->tableName . " a
+            WHERE id_utilisateur = :id";
 
-    //     return $this->getMultipleResults(
-    //         DAO::select($sql, ['id'=>$id], true),
-    //         $this->className
-    //     );
-    // }
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id'=>$id], true),
+            $this->className
+        );
+    }
     
 }

@@ -8,7 +8,6 @@ final class Topic extends Entity
 
         private $id;
         private $title;
-        private $body;
         private $creationdate;
         private $user;
         private $category;
@@ -64,26 +63,6 @@ final class Topic extends Entity
         /**
          * Get the value of title
          */
-        public function getBody()
-        {
-                if (!empty($this->title)) {
-                        return $this->body;
-                } else
-                        return [];
-
-        }
-
-        /**
-         * Set the value of title
-         *
-         * @return  self
-         */
-        public function setBody($body)
-        {
-                $this->body = $body;
-
-                return $this;
-        }
 
         public function getCreationdate()
         {

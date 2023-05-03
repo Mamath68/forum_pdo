@@ -28,7 +28,7 @@
             </h3>
             <header>
                 <nav>
-                    <div id="nav-left">
+                    <div id="nav-right">
                         <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
                         <?php
                         if (App\Session::isAdmin()) {
@@ -38,8 +38,6 @@
                             <?php
                         }
                         ?>
-                    </div>
-                    <div id="nav-right">
                         <?php
 
                         if (App\Session::getUser()) {
@@ -59,7 +57,6 @@
                         <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégories</a>
                         <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
                         <a class="href" href="index.php?ctrl=forum&action=listPosts">Liste des Messages</a>
-
                     </div>
                 </nav>
             </header>
@@ -69,11 +66,9 @@
             </main>
         </div>
         <footer>
-            <div class="nav-left">
-                <p class="p">&copy; 2020 - Forum CDA</p>
-            </div>
             <div class="nav-right">
                 <a class="href" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
+                <p class="p">&copy; 2020 - Forum CDA</p>
                 <a class="href" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
             </div>
             <!--<button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois-->

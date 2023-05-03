@@ -14,7 +14,7 @@ echo '<table class="table text-center">
       <tr>
       <th scope="col">Sujet</th>
       <th scope="col">Message</th>
-      <th scope="col">Date et Heurs</th>
+      <th scope="col">Date/Heures de création</th>
       </tr>
     </thead>';
 foreach ($posts as $post) {

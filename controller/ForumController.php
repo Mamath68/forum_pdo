@@ -35,12 +35,17 @@ class ForumController extends AbstractController implements ControllerInterface
         if (!empty($_POST)) {
 
             $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $id_user = filter_input(INPUT_POST, "id_utilisateur", FILTER_VALIDATE_INT);
+            $id_category = filter_input(INPUT_POST, "id_category", FILTER_VALIDATE_INT);
 
-            $topic = $topicManager->findOneByTitle($title);
+            $topic = $topicManager->findOneByTopic($title);
+            $topic = $topicManager->findTopicsByUser($title);
 
             if (!$topic) {
                 $topicManager->add([
                     "title" => $title,
+                    "id_utilisateur" => $id_user,
+                    "id_category" => $id_category
                 ]);
             }
         }
@@ -67,28 +72,28 @@ class ForumController extends AbstractController implements ControllerInterface
             ]
         ];
     }
-    public function addPost()
-    {
-        $postManager = new PostManager();
-        if (!empty($_POST)) {
+    // public function addPost()
+    // {
+    //     $postManager = new PostManager();
+    //     if (!empty($_POST)) {
 
-            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    //         $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $post = $postManager->findOneByTitle($title);
+    //         $post = $postManager->findOneByTitle($title);
 
-            if (!$post) {
-                $postManager->add([
-                    "title" => $title,
-                ]);
-            }
-        }
-        return [
-            "view" => VIEW_DIR . "forum/listPosts.php",
-            "data" => [
-                "categorys" => $postManager->findAll()
-            ]
-        ];
-    }
+    //         if (!$post) {
+    //             $postManager->add([
+    //                 "title" => $title,
+    //             ]);
+    //         }
+    //     }
+    //     return [
+    //         "view" => VIEW_DIR . "forum/listPosts.php",
+    //         "data" => [
+    //             "categorys" => $postManager->findAll()
+    //         ]
+    //     ];
+    // }
 
     public function listCategorys()
     {

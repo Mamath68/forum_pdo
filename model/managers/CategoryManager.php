@@ -29,15 +29,15 @@ class CategoryManager extends Manager
         );
     }
 
-//     public function findTopicsByUser($id)
-//     {
-//         $sql = "SELECT a.body, a.creationDate
-//     FROM " . $this->tableName . " a
-//     WHERE id_user = :id";
+    public function findTopicsByUser($id)
+    {
+        $sql = "SELECT a.body, a.creationDate
+    FROM " . $this->tableName . " a
+    WHERE id_user = :id";
 
-//         return $this->getMultipleResults(
-//             DAO::select($sql, ['id' => $id], true),
-//             $this->className
-//         );
-//     }
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id], true),
+            $this->className
+        );
+    }
 }

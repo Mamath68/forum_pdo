@@ -35,21 +35,16 @@ a {
     color: white;
 }
 
-#nav-left {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
 #nav-right {
     display: flex;
-    margin-left: 5%;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 
 .nav-right {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .p {

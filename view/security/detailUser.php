@@ -4,7 +4,6 @@
         <h5 class="card-title">
             <?= App\Session::getUser()->getPseudo() ?>
         </h5>
-        <p class="card-text">Voici mes Sujets de Conversation</p>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
