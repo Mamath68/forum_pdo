@@ -11,7 +11,7 @@ echo '
     <div class="col">
       <section>';
 foreach ($categorys as $category) {
-  echo '<div class="text-center"><br><br>
+  echo '<div class="text-center padd">
         <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</div>';
 }
 echo '

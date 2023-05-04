@@ -1,8 +1,10 @@
 <?php
 
-    namespace App;
+namespace App;
 
-    interface ControllerInterface{
-
-        public function index();
-    }
+// Reglage de l'affichage par défaut.
+interface ControllerInterface
+{
+// En l'occurence, la fonction index.
+    public function index();
+}

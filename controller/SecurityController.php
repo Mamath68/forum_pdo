@@ -1,22 +1,22 @@
 <?php
 
+// Ouvre le namespace Controller
 namespace Controller;
 
-use App\Session;
 // fait appel a Session dans dossier APP
-use App\AbstractController;
+use App\Session;
 // fait appel a AbstractController dans dossier APP
-use App\ControllerInterface;
+use App\AbstractController;
 // fait appel a ControllerInterface dans dossier APP
-use Model\Managers\TopicManager;
+use App\ControllerInterface;
 // fait appel a TopicManager dans sous-dossier Managers du dossier Model
-use Model\Managers\PostManager;
+use Model\Managers\TopicManager;
 // fait appel a PostManager dans sous-dossier Managers du dossier Model
-use Model\Managers\CategoryManager;
+use Model\Managers\PostManager;
 // fait appel a CategoryManager dans sous-dossier Managers du dossier Model
-use Model\Managers\UserManager;
-
+use Model\Managers\CategoryManager;
 // fait appel a UserManager dans sous-dossier Managers du dossier Model
+use Model\Managers\UserManager;
 
 // class securityController hérite de la classe AbstractController et implémente ControllerInterface.
 class SecurityController extends AbstractController implements ControllerInterface
@@ -38,8 +38,6 @@ class SecurityController extends AbstractController implements ControllerInterfa
     }
     public function register()
     {
-
-        $message = null;
 
         if (!empty($_POST)) {
 
@@ -67,21 +65,16 @@ class SecurityController extends AbstractController implements ControllerInterfa
                                 "password" => $hash
                             ])
                         ) {
-                            $message = "Enregistrement réussi !";
                             return [
                                 "view" => VIEW_DIR . "security/login.php",
-                                "message" => $message
                             ];
                         }
-                    } else {
-                        $message = "Ce surnom est déjà utilisé";
                     }
                 }
             }
         }
         return [
             "view" => VIEW_DIR . "security/register.php",
-            "message" => $message
         ];
     }
     public function loginForm()
@@ -108,11 +101,10 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
                 if ($user) {
                     if (password_verify($password, $pass)) {
-                        session :: setUser($user);
-                        
+                        session::setUser($user);
+
                         header('Location:index.php?ctrl=security&action=index');
-                    }
-                    else {
+                    } else {
                         return [
                             "view" => VIEW_DIR . "security/login.php",
                             "data" => null,
@@ -122,8 +114,8 @@ class SecurityController extends AbstractController implements ControllerInterfa
             }
         }
         // var_dump($_POST);
-        
-    
+
+
     }
 
     public function modifyPassword()

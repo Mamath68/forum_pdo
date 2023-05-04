@@ -1,6 +1,6 @@
 <?php
     namespace App;
-
+// Creation de la classe session, qui gère les session
     class Session{
 
         private static $categories = ['error', 'success'];
@@ -32,10 +32,10 @@
         public static function setUser($user){
             $_SESSION["user"] = $user;
         }
-
         public static function getUser(){
             return (isset($_SESSION['user'])) ? $_SESSION['user'] : false;
         }
+        // Vérifie si l'user est admin ou simple utilisateur.
         public static function isAdmin(){
             if(self::getUser() && self::getUser()->hasRole("ROLE_ADMIN")){
                 return true;

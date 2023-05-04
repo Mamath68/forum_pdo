@@ -1,8 +1,9 @@
 <?php
 	namespace App;
-	
+	// Création de la classe Autoloader
 	class Autoloader{
-
+		
+		// Fonction permettant de faire appel a une classe, sans include ou require.
 		public static function register(){
 			spl_autoload_register(array(__CLASS__, 'autoload'));
 		}

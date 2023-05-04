@@ -10,7 +10,7 @@ abstract class Manager
     }
 
     // /**
-    //  * get all the records of a table, sorted by optionnal field and order
+    //  * Recupère toutes les colonnes des tables, ordonnée par champs et ordre selon envie
     //  * 
     //  * @param array $order an array with field and order option
     //  * @return Collection a collection of objects hydrated by DAO, which are results of the request sent
@@ -21,25 +21,26 @@ abstract class Manager
         $orderQuery = ($order) ?
             "ORDER BY " . $order[0] . " " . $order[1] :
             "";
-
+        // $sql obtient la fonction : Selectionne tout de la table renseigné dans la valeurs tablename, trié par la fonction $orderQuery.
         $sql = "SELECT *
                     FROM " . $this->tableName . " a
                     " . $orderQuery;
-
+        // obtient plusieurs résultats, en théories. 
         return $this->getMultipleResults(
             DAO::select($sql),
             $this->className
         );
     }
-
+    // Fonction pour trouver les données par l'id renseigné.
     public function findOneById($id)
     {
-
+    
+    // Selectionne tout de la table renseigné dans la valeurs tablename, où l'id est égale a l'id renseigné.
         $sql = "SELECT *
                     FROM " . $this->tableName . " a
                     WHERE a.id_" . $this->tableName . " = :id
                     ";
-
+// Retourne soit un soit aucun résultat, toujours, selon l'id renseigné.
         return $this->getOneOrNullResult(
             DAO::select($sql, ['id' => $id], false),
             $this->className
@@ -61,7 +62,7 @@ abstract class Manager
                     ('" . implode("','", $values) . "')";
         //"'Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com'"
         /* INSERT INTO user (username,password,email) VALUES ('Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com') 
-        */
+         */
         try {
             return DAO::insert($sql);
         } catch (\PDOException $e) {
@@ -69,7 +70,7 @@ abstract class Manager
             die();
         }
     }
-
+// $sql obtient la fonction : Détruire(selon ce qui sera remplis par la suite) de la table (remplis dans la valeurs de tablemame) ou l'id est égale a l'id renseigné.
     public function delete($id)
     {
         $sql = "DELETE FROM " . $this->tableName . "
@@ -78,14 +79,14 @@ abstract class Manager
 
         return DAO::delete($sql, ['id' => $id]);
     }
-
+// Fonction générant autant de valeurs que necessaire, enfin que disponible.
     private function generate($rows, $class)
     {
         foreach ($rows as $row) {
             yield new $class($row);
         }
     }
-
+// Fonction obtenant plusieurs résultats.
     protected function getMultipleResults($rows, $class)
     {
 
@@ -94,7 +95,7 @@ abstract class Manager
         } else
             return null;
     }
-
+// fonction obtenant un ou Zeros résultats
     protected function getOneOrNullResult($row, $class)
     {
 
@@ -103,7 +104,7 @@ abstract class Manager
         }
         return false;
     }
-
+// j'avoue ne pas comprendre celle-ci, a voir avec un prof un jours.
     protected function getSingleScalarResult($row)
     {
 

@@ -1,14 +1,22 @@
 <?php
 
+// Ouvre le namespace Controller
 namespace Controller;
 
+// fait appel a Session dans dossier APP
 use App\Session;
+// fait appel a AbstractController dans dossier APP
 use App\AbstractController;
+// fait appel a ControllerInterface dans dossier APP
 use App\ControllerInterface;
-use Model\Managers\UserManager;
+// fait appel a TopicManager dans sous-dossier Managers du dossier Model
 use Model\Managers\TopicManager;
+// fait appel a UserManager dans sous-dossier Managers du dossier Model
+use Model\Managers\UserManager;
+// fait appel a PostManager dans sous-dossier Managers du dossier Model
 use Model\Managers\PostManager;
 
+// class HomeController hérite de la classe AbstractController et implémente ControllerInterface.
 class HomeController extends AbstractController implements ControllerInterface
 {
 

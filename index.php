@@ -9,7 +9,7 @@ define('PUBLIC_DIR', "/public"); //le chemin où se trouvent les fichiers    pub
 
 define('DEFAULT_CTRL', 'Home'); //nom du contrôleur par défaut
 define('ADMIN_MAIL', "admin@gmail.com"); //mail de l'administrateur
-
+// Fait Appel A l'autoloader dans le dossier APP
 require("app/Autoloader.php");
 
 Autoloader::register();
@@ -32,6 +32,7 @@ if (!class_exists($ctrlNS)) {
     //si c'est pas le cas, on choisit le namespace du controller par défaut
     $ctrlNS = "controller\\" . DEFAULT_CTRL . "Controller";
 }
+// crtl(controller) devient un nouveau NamespaceController
 $ctrl = new $ctrlNS();
 
 $action = "index"; //action par défaut de n'importe quel contrôleur
@@ -40,6 +41,7 @@ if (isset($_GET['action']) && method_exists($ctrl, $_GET['action'])) {
     //la méthode à appeller sera celle de l'url
     $action = $_GET['action'];
 }
+// 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else

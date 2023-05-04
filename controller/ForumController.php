@@ -1,40 +1,48 @@
 <?php
 
+// Ouvre le namespace Controller
 namespace Controller;
 
+// fait appel a Session dans dossier APP
 use App\Session;
+// fait appel a AbstractController dans dossier APP
 use App\AbstractController;
+// fait appel a ControllerInterface dans dossier APP
 use App\ControllerInterface;
+// fait appel a TopicManager dans sous-dossier Managers du dossier Model
 use Model\Managers\TopicManager;
+// fait appel a PostManager dans sous-dossier Managers du dossier Model
 use Model\Managers\PostManager;
+// fait appel a CategoryManager dans sous-dossier Managers du dossier Model
 use Model\Managers\CategoryManager;
 
-
+// class ForumController hérite de la classe AbstractController et implémente ControllerInterface.
 class ForumController extends AbstractController implements ControllerInterface
 {
 
+    // Fonction gerant la list des catégories
     public function listCategorys()
     {
 
         $categoryManager = new CategoryManager();
         $postManager = new PostManager();
         $topicManager = new TopicManager();
-        
+
         return [
-            
+
             "view" => VIEW_DIR . "forum/listCategorys.php",
             "data" => [
                 "categorys" => $categoryManager->findAll(["id_category", "ASC"]),
                 "topics" => $topicManager->findAll(["creationDate", "DESC"]),
                 "posts" => $postManager->findAll(["creationDate", "DESC"])
-                ]
-            ];
-        }
-        public function detailCategory($id)
-        {
-            
-            $topicManager = new TopicManager();
-            $topic = $topicManager->findOneById($id);
+            ]
+        ];
+    }
+    public function detailCategory($id)
+    {
+
+        $topicManager = new TopicManager();
+        $topic = $topicManager->findOneById($id);
         return [
             "view" => VIEW_DIR . "forum/detailCategory.php",
             "data" => [
