@@ -48,26 +48,17 @@ final class User extends Entity
         $this->email = $email;
     }
 
-    // public function getDateInscription()
-    // {
-    //     $formattedDate = $this->dateInscription->format("d/m/Y à H:i:s");
-    //     return $formattedDate;
-    // }
-    
-    /**
-     * Get the value of dateInscription
-     */ 
     public function getDateInscription()
     {
-        return $this->dateInscription->format("d/m/Y à H:i:s");
+        return $this->dateInscription->format("d/m/Y à H:i");
     }
-    
+
     public function setDateInscription($date)
     {
         $this->dateInscription = new \DateTime($date);
         return $this;
     }
-    
+
     public function getRoleUser()
     {
         if (!empty($this->roleUser)) {

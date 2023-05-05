@@ -8,7 +8,7 @@
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email"  name="email" id="email" placeholder="Email" class="form-control" required>
+        <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -16,8 +16,10 @@
     </div>
     <div class="mb-3">
         <label for="confirmPassword" class="form-label">Password</label>
-        <input type="password" name="confirmpassword" id="password" placeholder="Confirmer Mot de passe" class="form-control" required>
+        <input type="password" name="confirmpassword" id="password" placeholder="Confirmer Mot de passe"
+            class="form-control" required>
     </div>
-
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary reject">Enregistrer</button>
 </form>
+<button type="submit" class="btn btn-success reject2"><a class="href" href="index.php?ctrl=security&action=loginForm">Déja un
+    compte? Se connecter</a> </button>

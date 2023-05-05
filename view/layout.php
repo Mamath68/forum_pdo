@@ -16,63 +16,75 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
+    <h3 class="message" style="color: red">
+        <?= App\Session::getFlash("error") ?>
+    </h3>
+    <h3 class="message" style="color: green">
+        <?= App\Session::getFlash("success") ?>
+    </h3>
+    <header>
+        <nav>
+            <div id="nav-right">
+                <?php
+                if (App\Session::isAdmin()) {
+                    ?>
+                    <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
+                    <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des utilisateurs</a>
+                    <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                        <?= App\Session::getUser() ?>
+                        <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                        <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
 
-        <div id="mainpage">
-            <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
-            <h3 class="message" style="color: red">
-                <?= App\Session::getFlash("error") ?>
-            </h3>
-            <h3 class="message" style="color: green">
-                <?= App\Session::getFlash("success") ?>
-            </h3>
-            <header>
-                <nav>
-                    <div id="nav-right">
-                        <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
                         <?php
-                        if (App\Session::isAdmin()) {
-                            ?>
-                            <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
-
-                            <?php
-                        }
-                        ?>
-                        <?php
-
-                        if (App\Session::getUser()) {
-                            ?>
-                            <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span
-                                    class="fas fa-user"></span>&nbsp;
-                                <?= App\Session::getUser() ?>
+                } else if (App\Session::getUser()) {
+                    ?>
+                            <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
+                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <?= App\Session::getUser() ?>
+                                <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
                             </a>
-                            <?php
-                        } else {
-                            ?>
-                            <?php
-                        }
+                        <?php
+                } else {
+                    ?>
+                            <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
+                            <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
+                    <?php }
 
-                        ?>
-                        <a class="href" href="index.php?ctrl=forum&action=listCategorys">Liste des Catégories</a>
-                        <a class="href" href="index.php?ctrl=forum&action=listTopics">Liste des Sujets</a>
-                    </div>
-                </nav>
-            </header>
-
-            <main id="forum">
-                <?= $contenu ?>
-            </main>
-        </div>
-        <footer>
-            <div class="nav-right">
-                <a class="href" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
-                <p class="p">&copy; 2020 - Forum CDA</p>
-                <a class="href" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
+                ?>
             </div>
-            <!--<button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois-->
-        </footer>
-    </div>
+        </nav>
+    </header>
+    <?php
+    if (App\Session::isAdmin()) {
+        ?>
+        <main class="mainadmin">
+            <?= $contenu ?>
+        </main>
+
+
+        <?php
+    } else if (App\Session::getUser()) {
+        ?>
+            <main class="mainuser">
+            <?= $contenu ?>
+            </main>
+
+        <?php
+    } else {
+        ?>
+            <main class="mainmain">
+            <?= $contenu ?>
+            </main>
+    <?php } ?>
+    <footer>
+        <div class="nav-right">
+            <a class="href" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
+            <p class="p">&copy; 2020 - Forum CDA</p>
+            <a class="href" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
         </script>

@@ -49,18 +49,14 @@ class HomeController extends AbstractController implements ControllerInterface
     {
 
         $userManager = new UserManager();
-        $postManager = new PostManager();
-        $topicManager = new TopicManager();
+
 
         return [
             "view" => VIEW_DIR . "security/detailUser.php",
             "data" => [
                 "user" => $userManager->findOneById($id),
-                "post" => $postManager->findTopicsByUser($id),
-                "topic" => $topicManager->findTopicsByUser($id)
             ]
         ];
-        // redirectTo("home","listTopics");
     }
 
     public function forumRules()
@@ -77,13 +73,6 @@ class HomeController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "home/mentions_legal.php"
         ];
     }
-
-/* 
-public function editUser($id) 
-{
-$userManager = new UserManager();
-}
-*/
 
 /*public function ajax(){
 $nb = $_GET['nb'];

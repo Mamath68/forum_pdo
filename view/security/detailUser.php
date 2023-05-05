@@ -1,4 +1,4 @@
-<div class="card text-center" style="width: 20em; margin-left: 40%;">
+<div class="card text-center" style="width: 20em; margin-left: 40%;padding-top:2em;">
     <span class="fas fa-user"></span>
     <div class="card-body">
         <h5 class="card-title">

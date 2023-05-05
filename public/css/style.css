@@ -8,6 +8,11 @@ h1 {
     text-align: center;
 }
 
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 nav {
     background-color: black;
     padding: 2em;
@@ -15,16 +20,20 @@ nav {
     line-height: 0px;
 }
 
-header {
-    padding-bottom: 1em;
-}
-
 ul li {
     list-style: none;
 }
 
-main {
-    min-height: 78.8vh;
+.mainadmin {
+    min-height: 79.7vh;
+}
+
+.mainuser {
+    min-height: 79.7vh;
+}
+
+.mainmain {
+    min-height: 81.8vh;
 }
 
 .form-label {
@@ -43,11 +52,15 @@ a {
 .href {
     color: white;
 }
+.href:hover {
+    color: white;
+}
 
 #nav-right {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
+    margin-bottom: 10px;
 }
 
 .nav-right {
@@ -82,13 +95,16 @@ footer {
     padding-bottom: 30px;
 }
 
-.addTopic {
+.Formulaire {
     background-color: red;
     padding: 2em;
 }
 
-button[type='submit'] {
+.reject{
     margin-left: 50%;
+}
+.reject2{
+    margin-left: 45%;
 }
 
 /* img {
