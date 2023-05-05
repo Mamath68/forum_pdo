@@ -4,33 +4,24 @@ $topics = $result["data"]['topics'];
 
 ?>
 
-<h1>Liste des Sujets</h1>
-<?php
-echo '<table class="table text-center">
-    <thead>
-      <tr>
-      <th scope="col">Sujet</th>
-      <th scope="col">Date/Heures de création</th>
-      </tr>
-    </thead>';
-foreach ($topics as $topic) {
-  echo '<tbody>
-      <tr>
-      <td>' . $topic->getTitle() . '</td>
-      <td>' . $topic->getCreationdate() . '</td>
-      </tr>';
-}
-echo ' </tbody>
-      </table>';
-?>
-<?php
+<h1 class="text-light" style="margin-bottom:30px">Liste des Sujets</h1>
 
-if (App\Session::getUser()) {
-  include_once("addTopics.php");
-
-} else {
-
-}
-?>
-
+<div class="container" style="display:flex; flex-wrap: wrap;">
+  <?php foreach ($topics as $topic) { ?>
+    <div class="card"
+      style="background-image: url('https://i.pining.com/original/c9/6d/09/c96d09dd9e2ac87f10301cb40f94e8d3.jpg');width:30%;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-title text-center">
+          <a href="index.php?ctrl=forum&action=detailTopic&id=<?= $topic->getId() ?>"><?= $topic->getTitle() ?></a>
+        </p>
+        <p class="card-text text-center">
+          <?= $topic->getCreationdate() ?>
+        </p>
+        <p class="card-text text-center">
+          <?= $topic->getUser()->getPseudo() ?><br>
+        </p>
+      </div>
+    </div>
+  <?php } ?>
 </div>

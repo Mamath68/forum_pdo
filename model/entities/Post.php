@@ -34,7 +34,7 @@ final class Post extends Entity
     }
 
     public function getCreationDate(){
-        $formattedDate = $this->creationdate->format("d/m/Y à H:i:s");
+        $formattedDate = $this->creationdate->format("d/m/Y à H:i");
         return $formattedDate;
     }
 

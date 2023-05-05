@@ -1,38 +1,42 @@
 <?php
 
+$topic = $result["data"]['topics'];
 $posts = $result["data"]['posts'];
 
 ?>
 
-<h1>Liste des Messages</h1>
+<h1 style="margin-bottom:30px">
+  <?= $topic->getTitle() ?>
+</h1>
 
-<?php
+<div class="container" style="display:flex; flex-direction:column;align-items:center;/*justify-content:center;*/">
+  <?php foreach ($posts as $post) { ?>
+    <div class="card"
+      style="background-image: url('https://i.pining.com/original/c9/6d/09/c96d09dd9e2ac87f10301cb40f94e8d3.jpg');width:30%;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-center text-light"><strong>
+            <?= $post->getBody() ?>
+          </strong></p>
+        <p class="card-text text-center text-light"><strong>
+            <?= $post->getUser()->getPseudo() ?>
+          </strong></p>
+      </div>
+      <div class="button" style="display:flex; justify-content:center;">
+        <a href="index.php?ctrl=forum&action=addPostByTopic&id="><button type="button"
+            class="btn btn-primary btn-sm">Edit</button></a>
+        <a href="index.php?ctrl=forum&action=addPostByTopic&id="><button type="button"
+            class="btn btn-primary btn-sm">Delete</button></a>
+      </div>
+    </div>
+  <?php }
+  ?>
 
-echo '<table class="table text-center">
-<thead>
-  <tr>
-    <th scope="col">Message</th>
-    <th scope="col">Date/Heures de création</th>
-  </tr>
-</thead>
-<tbody>';
+  <div>
+    <form action="index.php?ctrl=forum&action=addPostByTopic&id=<?= $topic->getId() ?>" method="post">
+      <textarea name="body" cols="30" rows="10" required></textarea>
+      <button type="submit" name="submit">Ajouter votre Commentaire</button>
+    </form>
+  </div>
 
-foreach ($posts as $post) {
-  echo '
-  <tr>
-  <td>' . $post->getBody() . '</td>
-  <td>' . $post->getCreationDate() . '</td>
-  </tr>';
-}
-echo  '</tbody>
-       </table>';
-?>
-<?php
-
-if (App\Session::getUser()) {
-  include_once("addPost.php");
-} else {
-
-}
-?>
 </div>

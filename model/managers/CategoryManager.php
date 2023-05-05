@@ -19,9 +19,9 @@ class CategoryManager extends Manager
 
     public function findOneByTitle($title)
     {
-        $sql = "SELECT *
-            FROM " . $this->tableName . " t
-            WHERE t.title = :title";
+        $sql = "SELECT c.id_category, c.title
+            FROM category c
+            WHERE c.title = :title";
 
         return $this->getOneOrNullResult(
             DAO::select($sql, ['title' => $title], true),
@@ -29,15 +29,15 @@ class CategoryManager extends Manager
         );
     }
 
-    public function findTopicByCategory($id)
-    {
-        $sql = "SELECT *
-        FROM " . $this->tableName . " t
-        WHERE t.id_topic = :id";
+// public function findTopicByCategory($id)
+// {
+//     $sql = "SELECT *
+//     FROM " . $this->tableName . " t
+//     WHERE t.id_sujet = :id";
 
-        return $this->getMultipleResults(
-            DAO::select($sql, ['id' => $id], true),
-            $this->className
-        );
-    }
+//     return $this->getMultipleResults(
+//         DAO::select($sql, ['id' => $id], true),
+//         $this->className
+//     );
+// }
 }
