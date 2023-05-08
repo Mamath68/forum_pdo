@@ -33,24 +33,26 @@
                     <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des utilisateurs</a>
                     <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
                         <?= App\Session::getUser() ?>
-                        <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                        <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
+                    </a>
+                    <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                    <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
 
-                        <?php
+                    <?php
                 } else if (App\Session::getUser()) {
                     ?>
-                            <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
-                            <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
-                            <?= App\Session::getUser() ?>
-                                <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                                <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                            </a>
-                        <?php
+                        <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
+                        <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                        <?= App\Session::getUser() ?>
+                        </a>
+                        <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                        <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
+                        </a>
+                    <?php
                 } else {
                     ?>
-                            <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
-                            <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                    <?php }
+                        <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
+                        <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
+                <?php }
 
                 ?>
             </div>
