@@ -20,20 +20,20 @@ class TopicManager extends Manager
     public function findOneByTopic($title)
     {
         $sql = "SELECT *
-            FROM topic t
-            WHERE t.title = :title";
+        FROM " . $this->tableName . " t
+        WHERE t.title = :title";
 
         return $this->getOneOrNullResult(
             DAO::select($sql, ['title' => $title], true),
             $this->className
         );
     }
-    public function TopicByCat($id)
+    public function findTopicsByCat($id)
     {
-        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.utilisateur_id, t.category_id
-        FROM topic t
+        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.utilisateur_id, t.category_id, c.id_category, c.title
+        FROM " . $this->tableName . " t
         INNER JOIN category c 
-        on c.id_category = t.category_id
+        ON c.id_category = t.category_id
         WHERE c.id_category = :id";
 
         return $this->getMultipleResults(
@@ -44,12 +44,12 @@ class TopicManager extends Manager
 
     public function findTopicsByUser($id)
     {
-        $sql = "SELECT a.body, a.creationDate
-            FROM " . $this->tableName . " a
-            WHERE id_utilisateur = :id";
+        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.utilisateur_id,
+            FROM " . $this->tableName . " t
+            WHERE t.utilisateur_id = :id";
 
         return $this->getMultipleResults(
-            DAO::select($sql, ['id'=>$id], true),
+            DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }

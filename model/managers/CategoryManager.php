@@ -20,24 +20,12 @@ class CategoryManager extends Manager
     public function findOneByTitle($title)
     {
         $sql = "SELECT c.id_category, c.title
-            FROM category c
-            WHERE c.title = :title";
+                FROM " . $this->tableName . " c
+                WHERE c.title = :title";
 
         return $this->getOneOrNullResult(
             DAO::select($sql, ['title' => $title], true),
             $this->className
         );
     }
-
-// public function findTopicByCategory($id)
-// {
-//     $sql = "SELECT *
-//     FROM " . $this->tableName . " t
-//     WHERE t.id_sujet = :id";
-
-//     return $this->getMultipleResults(
-//         DAO::select($sql, ['id' => $id], true),
-//         $this->className
-//     );
-// }
 }
