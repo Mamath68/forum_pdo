@@ -52,9 +52,8 @@
                     ?>
                         <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
                         <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                <?php }
-
-                ?>
+                <?php
+                } ?>
             </div>
         </nav>
     </header>
@@ -64,22 +63,20 @@
         <main class="mainadmin">
             <?= $contenu ?>
         </main>
-
-
         <?php
     } else if (App\Session::getUser()) {
         ?>
             <main class="mainuser">
             <?= $contenu ?>
             </main>
-
         <?php
     } else {
         ?>
             <main class="mainmain">
             <?= $contenu ?>
             </main>
-    <?php } ?>
+    <?php
+    } ?>
     <footer>
         <div class="nav-right">
             <a class="href" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
