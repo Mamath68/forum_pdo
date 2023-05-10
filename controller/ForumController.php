@@ -36,11 +36,11 @@ class ForumController extends AbstractController implements ControllerInterface
     }
     public function detailCategory($id)
     {
-        
+
         $topicManager = new TopicManager();
         $categoryManager = new CategoryManager();
-        $topic = $topicManager->findTopicsByCat($id);
-        $category = $categoryManager->findOneByTitle($id);
+        // $topic = $topicManager->findTopicsByCat($id);
+        // $category = $categoryManager->findOneByTitle($id);
         return [
             "view" => VIEW_DIR . "forum/detailCategory.php",
             "data" => [
