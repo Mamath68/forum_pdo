@@ -70,7 +70,7 @@ class ForumController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "forum/detailCategory.php",
             "data" => [
                 "category" => $categoryManager->findOneById($id),
-                "topics" => $topicManager->findTopicsByCat($id)
+                "topics" => $topicManager->findTopicsByCat($id),
             ]
         ];
     }
@@ -83,63 +83,59 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
 
             "view" => VIEW_DIR . "forum/listTopics.php",
-            
+
             "data" => [
                 "topics" => $topicManager->findAll(["id_topic", "ASC"]),
-                ]
-            ];
-        }
+            ]
+        ];
+    }
 
-        public function findPostByTopic($id)
-        {
+    public function findPostByTopic($id)
+    {
 
-            $postManager = new PostManager();
         $topicManager = new TopicManager();
+        $postManager = new PostManager();
 
         return [
 
             "view" => VIEW_DIR . "forum/detailTopic.php",
             "data" => [
                 "topic" => $topicManager->findOneById($id),
-                "posts" => $postManager->PostByTopicId($id)
+                "posts" => $postManager->findPostsByTopic($id),
+            ]
+        ];
+    }
+    public function addTopic($id)
+    {
+        $categoryManager = new CategoryManager();
+        $id = $_GET['id'];
+        if (!empty($_POST)) {
+
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $user = Session::getUser()->getId();
+
+            if ($title) {
+                $topicManager = new TopicManager();
+
+                if (
+                    !$topicManager->add([
+                        "title" => $title,
+                        "user_id" => $user,
+                        "category_id" => $id,
+                    ])
+                )
+                    ;
+            }
+            $this->redirectTo("forum", "detailCategory");
+        }
+        return
+            [
+                "view" => VIEW_DIR . "forum/addTopics.php",
+                "data" => [
+                    "category" => $categoryManager->findOneById($id)
                 ]
             ];
-        }
-        public function addTopic($id)
-        {
-            if (!empty($_POST)) {
-    
-                $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $user = Session::getUser()->getId();
-                $id = $_GET['id'];
-    
-                if ($title) {
-                    $topicManager = new TopicManager();
-    
-                    if (
-                        !$topicManager->add([
-                            "title" => $title,
-                            "user_id" => $user,
-                            "category_id" => $id,
-                        ])
-                    );
-                }
-            }
-            return [
-                "view" => VIEW_DIR . "forum/addTopics.php",
-            ];
-        }
-        public function viewAddTop()
-        {
-            $topicManager = new TopicManager();
-            return
-                [
-                    "view" => VIEW_DIR . "forum/detailTopic.php",
-                    "data" => [
-                        "topics" => $topicManager->findAll()
-                    ]
-                ];
-        }
+    }
 
     public function viewUser()
     {
@@ -166,48 +162,92 @@ class ForumController extends AbstractController implements ControllerInterface
         ];
     }
 
-
-    public function addPostByTopic()
+    public function addPost()
     {
-        if (isset($_POST['submit'])) {
-            $id = $_GET['id'];
+        $topicManager = new TopicManager();
+        $id = $_GET['id'];
+        if (!empty($_POST)) {
 
             $body = filter_input(INPUT_POST, "body", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $user = Session::getUser()->getId();
 
-            $user = session::getUser()->getId();
-
-            $postManager = new PostManager();
 
             if (!$body) {
+                $postManager = new PostManager();
 
                 if (
-                    $postManager->add([
+                    !$postManager->add([
                         "body" => $body,
                         "user_id" => $user,
                         "topic_id" => $id,
                     ])
                 ) {
-                    Session::addFlash("success", "Commentaire ajouté");
                     $this->redirectTo("forum", "detailTopic", $id);
-                } else {
-                    Session::addFlash("error", "Commentaire non ajouté");
                 }
             }
-        } else {
-            Session::addFlash("error", "Une erreur de formulaire");
         }
-    }
-
-    public function viewpost()
-    {
-        $postManager = new PostManager();
         return
             [
                 "view" => VIEW_DIR . "forum/detailTopic.php",
                 "data" =>
                 [
-                    "categories" => $postManager->findAll()
+                    "post" => $postManager->findOneById($id)
                 ]
             ];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function editPostByTopic($id)
+    {
+        // $postManager = new PostManager();
+
+        // $idUser = $postManager->findOneById($id)->getUser()->getId();
+        // $topicId = $postManager->findOneById($id)->getTitle()->getId();
+
+        // if (isset($_POST)) {
+        //     $body = filter_input(INPUT_POST, "body", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        //     if ($body) {
+
+        //         $postManager->findPostsByTopic($id);
+
+        //         $this->redirectTo("forum", "detailTopic", $topicId);
+        //     } else {
+        //         Session::addFlash('error', "ERREUR DE POST");
+        //     }
+        // }
+        // return [
+        //     "view" => VIEW_DIR . "forum/detailTopic.php",
+        // ];
+    }
+
+    public function deletPostByTopic($id)
+    {
+        // $postManager = new PostManager();
+
+        // $idTopic = $postManager->findOneById($id);
+
+        // $postManager = delete();
+
+        // $this->redirectTo("forum", "detailTopic", $idTopic);
     }
 }

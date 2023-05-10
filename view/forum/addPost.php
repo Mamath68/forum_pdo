@@ -1,3 +1,7 @@
+<?php
+$topic = $result["data"]['topic'];
+?>
+
 <div class="Formulaire">
     <form action="index.php?ctrl=forum&action=addPost&id=<?= $topic->getId() ?>" method="post">
         <div class="mb-3">
