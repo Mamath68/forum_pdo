@@ -34,7 +34,7 @@ abstract class AbstractController
 // Fonction imposant une restriction au role donnée.
     public function restrictTo($role)
     {
-// Vérifie le rôle de l'utilisateur
+// Vérifie le rôle de l'user
         if (!Session::getUser() || !Session::getUser()->hasRole($role)) {
             // redirige vers le dossier security et le fichier login
             $this->redirectTo("security", "login");

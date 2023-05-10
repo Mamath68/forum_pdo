@@ -35,7 +35,7 @@
         public static function getUser(){
             return (isset($_SESSION['user'])) ? $_SESSION['user'] : false;
         }
-        // Vérifie si l'user est admin ou simple utilisateur.
+        // Vérifie si l'user est admin ou simple user.
         public static function isAdmin(){
             if(self::getUser() && self::getUser()->hasRole("ROLE_ADMIN")){
                 return true;

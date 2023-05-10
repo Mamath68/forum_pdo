@@ -15,7 +15,7 @@ if (App\Session::isAdmin()) {
       <section>';
   foreach ($categories as $category) {
     echo '<div class="text-center padd">
-        <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
+        <a href="index.php?ctrl=forum&action=findTopicByCat&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
   }
   echo '
     </section>
@@ -33,13 +33,14 @@ if (App\Session::isAdmin()) {
         <section>';
   foreach ($categories as $category) {
     echo '<div class="text-center padd">
-          <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
+          <a href="index.php?ctrl=forum&action=findTopicByCat&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
   }
   echo '
       </section>
       </div>
     </div>
   </div>';
+
 } else {
   echo '
   <div class="container text-center">
@@ -48,7 +49,7 @@ if (App\Session::isAdmin()) {
         <section>';
   foreach ($categories as $category) {
     echo '<div class="text-center padd">
-          <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
+          <a href="index.php?ctrl=forum&action=findTopicByCat&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
   }
   echo '
       </section>

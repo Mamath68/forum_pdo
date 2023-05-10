@@ -44,16 +44,16 @@ CREATE TABLE IF NOT EXISTS `post` (
   `body` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `creationDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `topic_id` int NOT NULL,
-  `utilisateur_id` int NOT NULL,
+  `user_id` int NOT NULL,
   PRIMARY KEY (`id_post`) USING BTREE,
-  KEY `id_utilisateur` (`utilisateur_id`) USING BTREE,
+  KEY `id_user` (`user_id`) USING BTREE,
   KEY `id_sujet` (`topic_id`) USING BTREE,
   CONSTRAINT `FK_post_topic` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
-  CONSTRAINT `FK_post_utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateur` (`id_utilisateur`)
+  CONSTRAINT `FK_post_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table forum.post : ~2 rows (environ)
-INSERT INTO `post` (`id_post`, `body`, `creationDate`, `topic_id`, `utilisateur_id`) VALUES
+INSERT INTO `post` (`id_post`, `body`, `creationDate`, `topic_id`, `user_id`) VALUES
 	(1, 'Coucou, moi j\'adore les golden', '2023-05-02 10:27:53', 2, 2),
 	(2, 'Bonjour, j\'adore les garigette', '2023-05-03 08:54:48', 1, 2);
 
@@ -63,17 +63,17 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `creationDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `isClosed` tinyint NOT NULL DEFAULT '0',
-  `utilisateur_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `category_id` int NOT NULL,
   PRIMARY KEY (`id_topic`) USING BTREE,
-  KEY `id_utilisateur` (`utilisateur_id`) USING BTREE,
+  KEY `id_user` (`user_id`) USING BTREE,
   KEY `id_category` (`category_id`) USING BTREE,
   CONSTRAINT `FK_topic_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
-  CONSTRAINT `FK_topic_utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateur` (`id_utilisateur`)
+  CONSTRAINT `FK_topic_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table forum.topic : ~6 rows (environ)
-INSERT INTO `topic` (`id_topic`, `title`, `creationDate`, `isClosed`, `utilisateur_id`, `category_id`) VALUES
+INSERT INTO `topic` (`id_topic`, `title`, `creationDate`, `isClosed`, `user_id`, `category_id`) VALUES
 	(1, 'Fraises', '2023-05-02 10:28:34', 0, 1, 1),
 	(2, 'Pommes', '2023-04-28 11:36:54', 0, 1, 1),
 	(3, 'Voiture', '2023-05-03 15:49:00', 0, 1, 2),
@@ -81,20 +81,20 @@ INSERT INTO `topic` (`id_topic`, `title`, `creationDate`, `isClosed`, `utilisate
 	(5, 'Chien', '2023-05-03 15:50:04', 0, 1, 3),
 	(6, 'Chats', '2023-05-03 15:50:25', 0, 1, 3);
 
--- Listage de la structure de table forum. utilisateur
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `id_utilisateur` int NOT NULL AUTO_INCREMENT,
+-- Listage de la structure de table forum. user
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `roleUser` json DEFAULT NULL,
   `dateInscription` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_utilisateur`),
+  PRIMARY KEY (`id_user`),
   UNIQUE KEY `pseudo` (`pseudo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table forum.utilisateur : ~4 rows (environ)
-INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `email`, `password`, `roleUser`, `dateInscription`) VALUES
+-- Listage des données de la table forum.user : ~4 rows (environ)
+INSERT INTO `user` (`id_user`, `pseudo`, `email`, `password`, `roleUser`, `dateInscription`) VALUES
 	(1, 'Mathieu Stamm', 'mathieu.stamm@gmail.com', '$2y$10$92LLxFTpwfPRDP8vy/qDPufp48yupfMIgLPy3LFV8seXhggP7Gxqu', '["ROLE_ADMIN"]', '2023-04-28 09:02:57'),
 	(2, 'Mathieu1998', 'mathieu.stamm@outlook.com', '$2y$10$jQVbLuv0eW1a0Ubnrv.flOro4WQSBQyj2qOGyKk1C1Qjghr0OlRBq', '["ROLE_USER"]', '2023-04-28 10:41:17'),
 	(3, 'Teuteu1998', 'mathieustamm@petalmail.com', '$2y$10$D4LrexQJcEdBechXCf2MW.2wU34W6bE9c8XFR/TYa6XjInkfZ/yky', NULL, '2023-04-28 16:35:17'),

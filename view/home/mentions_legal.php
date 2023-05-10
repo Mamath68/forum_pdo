@@ -14,7 +14,7 @@
     la gestion de la relation client et à des fins d’analyses et de statistiques.</p>
 
 
-<p><b>Utilisateur :</b> Internaute se connectant, utilisant le site susnommé.</p>
+<p><b>user :</b> Internaute se connectant, utilisant le site susnommé.</p>
 <p><b>Informations personnelles :</b> « Les informations qui permettent, sous quelque forme que ce soit, directement ou
     non, l'identification des personnes physiques auxquelles elles s'appliquent » (article 4 de la loi n° 78-17 du 6
     janvier 1978).</p>
@@ -23,7 +23,7 @@
 
 <h2>1. Présentation du site internet.</h2>
 <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est
-    précisé aux utilisateurs du site internet <a
+    précisé aux users du site internet <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> l'identité des différents
     intervenants dans le cadre de sa réalisation et de son suivi:
 </p>
@@ -52,17 +52,17 @@
 
 <p>L’utilisation du site <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> implique
     l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions
-    d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a
+    d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les users du site <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> sont donc invités à les consulter de
     manière régulière.</p>
 
-<p>Ce site internet est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de
+<p>Ce site internet est normalement accessible à tout moment aux users. Une interruption pour raison de
     maintenance technique peut être toutefois décidée par <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>, qui s’efforcera alors de communiquer
-    préalablement aux utilisateurs les dates et heures de l’intervention.
+    préalablement aux users les dates et heures de l’intervention.
     Le site web <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> est mis à jour
     régulièrement par <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> responsable. De la
-    même façon, les mentions légales peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur
+    même façon, les mentions légales peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’user
     qui est invité à s’y référer le plus souvent possible afin d’en prendre connaissance.</p>
 
 <h2>3. Description des services fournis.</h2>
@@ -86,7 +86,7 @@
 <p>Le site utilise la technologie JavaScript.
 
     Le site Internet ne pourra être tenu responsable de dommages matériels liés à l’utilisation du site. De plus,
-    l’utilisateur du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et avec
+    l’user du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et avec
     un navigateur de dernière génération mis-à-jour
     Le site <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> est hébergé chez un
     prestataire sur le territoire de l’Union Européenne conformément aux dispositions du Règlement Général sur la
@@ -122,7 +122,7 @@
     la véracité du Contenu qu’il publie. </p>
 
 <p><a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> ne pourra être tenu responsable des
-    dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site internet <a
+    dommages directs et indirects causés au matériel de l’user, lors de l’accès au site internet <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>, et résultant soit de l’utilisation
     d’un matériel ne répondant pas aux spécifications indiquées au point 4, soit de l’apparition d’un bug ou d’une
     incompatibilité.</p>
@@ -131,11 +131,11 @@
     responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à
     l’utilisation du site <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>.
     Des espaces interactifs (possibilité de poser des questions dans l’espace contact) sont à la disposition des
-    utilisateurs. <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> se réserve le droit de
+    users. <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> se réserve le droit de
     supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation
     applicable en France, en particulier aux dispositions relatives à la protection des données. Le cas échéant, <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> se réserve également la possibilité
-    de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère
+    de mettre en cause la responsabilité civile et/ou pénale de l’user, notamment en cas de message à caractère
     raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé (texte, photographie …).</p>
 
 <h2>7. Gestion des données personnelles.</h2>
@@ -146,7 +146,7 @@
 
 <h3>7.1 Responsables de la collecte des données personnelles</h3>
 
-<p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa
+<p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’user et de sa
     navigation sur le Site, le responsable du traitement des Données Personnelles est : Mathieu Stamm. <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>est représenté par Mathieu Stamm, son
     représentant légal</p>
@@ -170,7 +170,7 @@
 <ul>
 
     <li>pour permettre la navigation sur le Site et la gestion et la traçabilité des prestations et services commandés
-        par l’utilisateur : données de connexion et d’utilisation du Site, facturation, historique des commandes, etc.
+        par l’user : données de connexion et d’utilisation du Site, facturation, historique des commandes, etc.
     </li>
 
     <li>pour prévenir et lutter contre la fraude informatique (spamming, hacking…) : matériel informatique utilisé pour
@@ -191,50 +191,50 @@
 <h3>7.3 Droit d’accès, de rectification et d’opposition</h3>
 
 <p>
-    Conformément à la réglementation européenne en vigueur, les Utilisateurs de <a
+    Conformément à la réglementation européenne en vigueur, les users de <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> disposent des droits suivants : </p>
 <ul>
 
     <li>droit d'accès (article 15 RGPD) et de rectification (article 16 RGPD), de mise à jour, de complétude des données
-        des Utilisateurs droit de verrouillage ou d’effacement des données des Utilisateurs à caractère personnel
+        des users droit de verrouillage ou d’effacement des données des users à caractère personnel
         (article 17 du RGPD), lorsqu’elles sont inexactes, incomplètes, équivoques, périmées, ou dont la collecte,
         l'utilisation, la communication ou la conservation est interdite </li>
 
     <li>droit de retirer à tout moment un consentement (article 13-2c RGPD) </li>
 
-    <li>droit à la limitation du traitement des données des Utilisateurs (article 18 RGPD) </li>
+    <li>droit à la limitation du traitement des données des users (article 18 RGPD) </li>
 
-    <li>droit d’opposition au traitement des données des Utilisateurs (article 21 RGPD) </li>
+    <li>droit d’opposition au traitement des données des users (article 21 RGPD) </li>
 
-    <li>droit à la portabilité des données que les Utilisateurs auront fournies, lorsque ces données font l’objet de
+    <li>droit à la portabilité des données que les users auront fournies, lorsque ces données font l’objet de
         traitements automatisés fondés sur leur consentement ou sur un contrat (article 20 RGPD) </li>
 
-    <li>droit de définir le sort des données des Utilisateurs après leur mort et de choisir à qui <a
+    <li>droit de définir le sort des données des users après leur mort et de choisir à qui <a
             href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> devra communiquer (ou non) ses
         données à un tiers qu’ils aura préalablement désigné</li>
 </ul>
 
 <p>Dès que <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> a connaissance du décès d’un
-    Utilisateur et à défaut d’instructions de sa part, <a
+    user et à défaut d’instructions de sa part, <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> s’engage à détruire ses données, sauf
     si leur conservation s’avère nécessaire à des fins probatoires ou pour répondre à une obligation légale.</p>
 
-<p>Si l’Utilisateur souhaite savoir comment <a
+<p>Si l’user souhaite savoir comment <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> utilise ses Données Personnelles,
-    demander à les rectifier ou s’oppose à leur traitement, l’Utilisateur peut contacter <a
+    demander à les rectifier ou s’oppose à leur traitement, l’user peut contacter <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> par écrit à l’adresse suivante : </p>
 
 Mathieu Stamm – DPO, Mathieu Stamm <br>
 10 avenue de Bruxelles 68350 BRUNSTATT-DIDENHEIM.
 
-<p>Dans ce cas, l’Utilisateur doit indiquer les Données Personnelles qu’il souhaiterait que <a
+<p>Dans ce cas, l’user doit indiquer les Données Personnelles qu’il souhaiterait que <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> corrige, mette à jour ou supprime, en
     s’identifiant précisément avec une copie d’une pièce d’identité (carte d’identité ou passeport). </p>
 
 <p>
     Les demandes de suppression de Données Personnelles seront soumises aux obligations qui sont imposées à <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> par la loi, notamment en matière de
-    conservation ou d’archivage des documents. Enfin, les Utilisateurs de <a
+    conservation ou d’archivage des documents. Enfin, les users de <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> peuvent déposer une réclamation
     auprès des autorités de contrôle, et notamment de la CNIL (https://www.cnil.fr/fr/plaintes).</p>
 
@@ -261,12 +261,12 @@ Mathieu Stamm – DPO, Mathieu Stamm <br>
 </p>
 
 <p>
-    Les Données Personnelles de l’Utilisateur peuvent être traitées par des filiales de <a
+    Les Données Personnelles de l’user peuvent être traitées par des filiales de <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> et des sous-traitants (prestataires
     de services), exclusivement afin de réaliser les finalités de la présente politique.</p>
 <p>
     Dans la limite de leurs attributions respectives et pour les finalités rappelées ci-dessus, les principales
-    personnes susceptibles d’avoir accès aux données des Utilisateurs de <a
+    personnes susceptibles d’avoir accès aux données des users de <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> sont principalement les agents de
     notre service client.</p>
 
@@ -277,18 +277,18 @@ Mathieu Stamm – DPO, Mathieu Stamm <br>
 <p>
     Quels que soient les efforts fournis, aucune méthode de transmission sur Internet et aucune méthode de stockage
     électronique n'est complètement sûre. Nous ne pouvons en conséquence pas garantir une sécurité absolue.
-    Si nous prenions connaissance d'une brèche de la sécurité, nous avertirions les utilisateurs concernés afin qu'ils
+    Si nous prenions connaissance d'une brèche de la sécurité, nous avertirions les users concernés afin qu'ils
     puissent prendre les mesures appropriées. Nos procédures de notification d’incident tiennent compte de nos
     obligations légales, qu'elles se situent au niveau national ou européen. Nous nous engageons à informer pleinement
     nos clients de toutes les questions relevant de la sécurité de leur compte et à leur fournir toutes les informations
     nécessaires pour les aider à respecter leurs propres obligations réglementaires en matière de reporting.</p>
 <p>
-    Aucune information personnelle de l'utilisateur du site <a
+    Aucune information personnelle de l'user du site <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> n'est publiée à l'insu de
-    l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du
+    l'user, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du
     rachat de <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> et de ses droits permettrait
     la transmission des dites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de
-    conservation et de modification des données vis à vis de l'utilisateur du site <a
+    conservation et de modification des données vis à vis de l'user du site <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>.</p>
 
 <h3>Sécurité</h3>
@@ -318,30 +318,30 @@ ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tou
 
 <h3>9.1. « COOKIES »</h3>
 <p>
-    Un « cookie » est un petit fichier d’information envoyé sur le navigateur de l’Utilisateur et enregistré au sein du
-    terminal de l’Utilisateur (ex : ordinateur, smartphone), (ci-après « Cookies »). Ce fichier comprend des
-    informations telles que le nom de domaine de l’Utilisateur, le fournisseur d’accès Internet de l’Utilisateur, le
-    système d’exploitation de l’Utilisateur, ainsi que la date et l’heure d’accès. Les Cookies ne risquent en aucun cas
-    d’endommager le terminal de l’Utilisateur.</p>
+    Un « cookie » est un petit fichier d’information envoyé sur le navigateur de l’user et enregistré au sein du
+    terminal de l’user (ex : ordinateur, smartphone), (ci-après « Cookies »). Ce fichier comprend des
+    informations telles que le nom de domaine de l’user, le fournisseur d’accès Internet de l’user, le
+    système d’exploitation de l’user, ainsi que la date et l’heure d’accès. Les Cookies ne risquent en aucun cas
+    d’endommager le terminal de l’user.</p>
 <p>
     <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> est susceptible de traiter les
-    informations de l’Utilisateur concernant sa visite du Site, telles que les pages consultées, les recherches
+    informations de l’user concernant sa visite du Site, telles que les pages consultées, les recherches
     effectuées. Ces informations permettent à <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> d’améliorer le contenu du Site, de la
-    navigation de l’Utilisateur.
+    navigation de l’user.
 </p>
 <p>
-    Les Cookies facilitant la navigation et/ou la fourniture des services proposés par le Site, l’Utilisateur peut
+    Les Cookies facilitant la navigation et/ou la fourniture des services proposés par le Site, l’user peut
     configurer son navigateur pour qu’il lui permette de décider s’il souhaite ou non les accepter de manière à ce que
     des Cookies soient enregistrés dans le terminal ou, au contraire, qu’ils soient rejetés, soit systématiquement, soit
-    selon leur émetteur. L’Utilisateur peut également configurer son logiciel de navigation de manière à ce que
+    selon leur émetteur. L’user peut également configurer son logiciel de navigation de manière à ce que
     l’acceptation ou le refus des Cookies lui soient proposés ponctuellement, avant qu’un Cookie soit susceptible d’être
     enregistré dans son terminal. <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> informe
-    l’Utilisateur que, dans ce cas, il se peut que les fonctionnalités de son logiciel de navigation ne soient pas
+    l’user que, dans ce cas, il se peut que les fonctionnalités de son logiciel de navigation ne soient pas
     toutes disponibles.</p>
 <p>
-    Si l’Utilisateur refuse l’enregistrement de Cookies dans son terminal ou son navigateur, ou si l’Utilisateur
-    supprime ceux qui y sont enregistrés, l’Utilisateur est informé que sa navigation et son expérience sur le Site
+    Si l’user refuse l’enregistrement de Cookies dans son terminal ou son navigateur, ou si l’user
+    supprime ceux qui y sont enregistrés, l’user est informé que sa navigation et son expérience sur le Site
     peuvent être limitées. Cela pourrait également être le cas lorsque <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> ou l’un de ses prestataires ne peut
     pas reconnaître, à des fins de compatibilité technique, le type de navigateur utilisé par le terminal, les
@@ -350,28 +350,28 @@ ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tou
     Le cas échéant, <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> décline toute
     responsabilité pour les conséquences liées au fonctionnement dégradé du Site et des services éventuellement proposés
     par <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>, résultant (i) du refus de Cookies
-    par l’Utilisateur (ii) de l’impossibilité pour <a
+    par l’user (ii) de l’impossibilité pour <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> d’enregistrer ou de consulter les
-    Cookies nécessaires à leur fonctionnement du fait du choix de l’Utilisateur. Pour la gestion des Cookies et des
-    choix de l’Utilisateur, la configuration de chaque navigateur est différente. Elle est décrite dans le menu d’aide
-    du navigateur, qui permettra de savoir de quelle manière l’Utilisateur peut modifier ses souhaits en matière de
+    Cookies nécessaires à leur fonctionnement du fait du choix de l’user. Pour la gestion des Cookies et des
+    choix de l’user, la configuration de chaque navigateur est différente. Elle est décrite dans le menu d’aide
+    du navigateur, qui permettra de savoir de quelle manière l’user peut modifier ses souhaits en matière de
     Cookies.</p>
 <p>
-    À tout moment, l’Utilisateur peut faire le choix d’exprimer et de modifier ses souhaits en matière de Cookies. <a
+    À tout moment, l’user peut faire le choix d’exprimer et de modifier ses souhaits en matière de Cookies. <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> pourra en outre faire appel aux
     services de prestataires externes pour l’aider à recueillir et traiter les informations décrites dans cette section.
 </p>
 <p>
     Enfin, en cliquant sur les icônes dédiées aux réseaux sociaux Twitter, Facebook, Linkedin et Google Plus figurant
     sur le Site de <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> ou dans son application
-    mobile et si l’Utilisateur a accepté le dépôt de cookies en poursuivant sa navigation sur le Site Internet ou
+    mobile et si l’user a accepté le dépôt de cookies en poursuivant sa navigation sur le Site Internet ou
     l’application mobile de <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>, Twitter,
     Facebook, Linkedin et Google Plus peuvent également déposer des cookies sur vos terminaux (ordinateur, tablette,
     téléphone portable).</p>
 <p>
     Ces types de cookies ne sont déposés sur vos terminaux qu’à condition que vous y consentiez, en continuant votre
     navigation sur le Site Internet ou l’application mobile de <a
-        href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>. À tout moment, l’Utilisateur peut
+        href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a>. À tout moment, l’user peut
     néanmoins revenir sur son consentement à ce que <a
         href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> dépose ce type de cookies.</p>
 
@@ -383,7 +383,7 @@ ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tou
     <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> peut employer occasionnellement des
     balises Internet (également appelées « tags », ou balises d’action, GIF à un pixel, GIF transparents, GIF invisibles
     et GIF un à un) et les déployer par l’intermédiaire d’un partenaire spécialiste d’analyses Web susceptible de se
-    trouver (et donc de stocker les informations correspondantes, y compris l’adresse IP de l’Utilisateur) dans un pays
+    trouver (et donc de stocker les informations correspondantes, y compris l’adresse IP de l’user) dans un pays
     étranger.
 </p>
 
@@ -394,7 +394,7 @@ ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tou
 <p>
     Cette technologie permet à <a href="http://localhost/pro/sql/forum/">http://localhost/pro/sql/forum/</a> d’évaluer
     les réponses des visiteurs face au Site et l’efficacité de ses actions (par exemple, le nombre de fois où une page
-    est ouverte et les informations consultées), ainsi que l’utilisation de ce Site par l’Utilisateur. </p>
+    est ouverte et les informations consultées), ainsi que l’utilisation de ce Site par l’user. </p>
 <p>
     Le prestataire externe pourra éventuellement recueillir des informations sur les visiteurs du Site et d’autres sites
     Internet grâce à ces balises, constituer des rapports sur l’activité du Site à l’attention de <a

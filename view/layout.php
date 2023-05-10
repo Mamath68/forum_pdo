@@ -30,7 +30,7 @@
                 if (App\Session::isAdmin()) {
                     ?>
                     <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
-                    <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des utilisateurs</a>
+                    <a class="href" href="index.php?ctrl=home&action=users">Voir la liste des users</a>
                     <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
                         <?= App\Session::getUser() ?>
                     </a>

@@ -9,7 +9,7 @@ final class User extends Entity
     private $id;
     private $pseudo;
     private $email;
-    private \DateTime $dateInscription;
+    private \DateTime $registerDate;
     private $roleUser;
     private $password;
 
@@ -48,14 +48,14 @@ final class User extends Entity
         $this->email = $email;
     }
 
-    public function getDateInscription()
+    public function getRegisterDate()
     {
-        return $this->dateInscription->format("d/m/Y à H:i");
+        return $this->registerDate->format("d/m/Y à H:i");
     }
 
-    public function setDateInscription($date)
+    public function setRegisterDate($date)
     {
-        $this->dateInscription = new \DateTime($date);
+        $this->registerDate = new \DateTime($date);
         return $this;
     }
 

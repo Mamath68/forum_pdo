@@ -4,7 +4,7 @@ $users = $result["data"]['users'];
 
 ?>
 
-<h1>Liste des Utilisateur</h1>
+<h1>Liste des user</h1>
 <div style="padding-bottom:21.5%;">
 
   <?php
@@ -19,7 +19,7 @@ $users = $result["data"]['users'];
     echo '<tbody>
   <tr>
   <td>' . $user->getPseudo() . '</td>
-  <td>' . $user->getDateInscription() . '</td>
+  <td>' . $user->getRegisterDate() . '</td>
   </tr>';
   }
   echo ' </tbody>

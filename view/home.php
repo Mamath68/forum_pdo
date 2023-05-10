@@ -5,7 +5,7 @@ if (App\Session::isAdmin()) {
     <h1 style="padding-top:15%">Bienvenue Administrateur</h1>
     <p class="p" style="padding-bottom:16.6%;">Vous pouvez désormais Créer vos Catégories, sujets de conversation, poster
         des messages, et gérer les
-        utilisateurs. <br> Vous pouvez par exemple, bannir les utilisateurs ayant enfreins les <a
+        users. <br> Vous pouvez par exemple, bannir les users ayant enfreins les <a
             href="index.php?ctrl=home&action=forumRules" target="_blank">Règles du forum</a></p>
     <?php
 } else if (App\Session::getUser()) {

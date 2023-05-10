@@ -39,7 +39,7 @@ class HomeController extends AbstractController implements ControllerInterface
 
             "data" => [
 
-                "users" => $userManager->findAll(["dateInscription", "DESC"])
+                "users" => $userManager->findAll(["registerDate", "DESC"])
 
             ]
         ];

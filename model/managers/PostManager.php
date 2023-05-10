@@ -42,7 +42,7 @@ class PostManager extends Manager
     }
     public function PostByTopicId($id)
     {
-        $sql = "SELECT p.id_post, p.body,p.creationDate,p.utilisateur_id, p.topic_id
+        $sql = "SELECT p.id_post, p.body,p.creationDate,p.user_id, p.topic_id
             FROM post p
             INNER JOIN topic t
             ON p.id_topic = t.topic_id
@@ -56,12 +56,12 @@ class PostManager extends Manager
         );
     }
 
-    public function findPostByUser($id)
+    public function findAllPostByUser()
     {
-        $sql = "SELECT p.id_post, p.body, p.creationDate, p.utilisateur_id
+        $sql = "SELECT p.id_post, p.body, p.creationDate, p.user_id
                 FROM post p
-                INNER JOIN utilisateur u 
-                On u.id_utilisateur = p.id_utilisateur ";
+                INNER JOIN user u 
+                On u.id_user = p.user_id ";
 
         return $this->getMultipleResults(
             DAO::select($sql),
@@ -73,8 +73,8 @@ class PostManager extends Manager
     {
         $sql = "SELECT *
                 FROM post p
-                INNER JOIN utilisateur u 
-                On u.id_utilisateur = p.id_utilisateur ";
+                INNER JOIN user u 
+                On u.id_user = p.id_user ";
 
         return $this->getMultipleResults(
             DAO::select($sql),

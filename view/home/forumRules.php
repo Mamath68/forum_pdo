@@ -33,7 +33,7 @@
         certains
         message, <br> De ce fait, le forum ainsi que l'association décline toute responsabilité quand au contenu des
         messages des
-        utilisateurs.
+        users.
     </li>
     <li class="list-group-item">
         Toute promotion ou incitation à la reproduction animale est à proscrire sur ce forum. Si tel était le cas,

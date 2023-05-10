@@ -15,7 +15,7 @@ if (App\Session::isAdmin()) {
             </li>
             <li class="list-group-item">
                 Date D'inscription <br>
-                <?= App\Session::getUser()->getDateInscription() ?>
+                <?= App\Session::getUser()->getRegisterDate() ?>
             </li>
         </ul>
         <div class="card-body">
@@ -41,7 +41,7 @@ if (App\Session::isAdmin()) {
                 </li>
                 <li class="list-group-item">
                     Date D'inscription <br>
-                <?= App\Session::getUser()->getDateInscription() ?>
+                <?= App\Session::getUser()->getRegisterDate() ?>
                 </li>
             </ul>
             <div class="card-body">
@@ -66,7 +66,7 @@ if (App\Session::isAdmin()) {
                 </li>
                 <li class="list-group-item">
                     Date D'inscription <br>
-                <?= App\Session::getUser()->getDateInscription() ?>
+                <?= App\Session::getUser()->getRegisterDate() ?>
                 </li>
             </ul>
             <div class="card-body">
