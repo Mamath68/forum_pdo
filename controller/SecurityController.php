@@ -62,7 +62,8 @@ class SecurityController extends AbstractController implements ControllerInterfa
                             $manager->add([
                                 "pseudo" => $nickname,
                                 "email" => $email,
-                                "password" => $hash
+                                "password" => $hash,
+                                "roleUser" => json_encode(["ROLE_USER"]),
                             ])
                         ) {
                             return [

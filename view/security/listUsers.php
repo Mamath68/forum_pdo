@@ -1,16 +1,15 @@
 <?php
 
 $users = $result["data"]['users'];
-
 ?>
 
-<h1>Liste des user</h1>
-<div style="padding-bottom:21.5%;">
+<h1>Liste des Utilisateurs</h1>
+<div class="container">
 
   <?php
   echo '<table class="table text-center">
-<thead>
-<tr>
+  <thead>
+  <tr>
 <th scope="col">Pseudo</th>
 <th scope="col">Date Inscription</th>
 </tr>

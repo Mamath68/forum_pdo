@@ -48,7 +48,7 @@ if (App\Session::isAdmin()) {
         <div class="card" style="width:30%; margin:25px;">
           <div class="card-body">
             <h5 class="card-title text-center">
-              <a href="index.php?ctrl=forum&action=detailTopic&id=' . $topic->getId() . '">' . $topic->getTitle() . '</a>
+              <a href="index.php?ctrl=forum&action=findPostByTopic&id=' . $topic->getId() . '">' . $topic->getTitle() . '</a>
             </h5>
             <p class="card-text text-center">' . $topic->getCreationdate() . '</p>
             <p class="card-text text-center">' . $topic->getUser()->getPseudo() . '</p>
@@ -61,7 +61,7 @@ if (App\Session::isAdmin()) {
       ?>
       <div>
         <button>
-          <a href="index.php?ctrl=forum&action=viewAddTop&id=<?= $category->getId() ?>">Add</a>
+          <a href="index.php?ctrl=forum&action=addTopic&id=<?= $category->getId() ?>">Add</a>
         </button>';
       </div>
     </div>
@@ -79,7 +79,7 @@ if (App\Session::isAdmin()) {
         <div class="card" style="width:30%; margin:25px;">
           <div class="card-body">
             <h5 class="card-title text-center">
-              <a href="index.php?ctrl=forum&action=detailTopic&id=' . $topic->getId() . '">' . $topic->getTitle() . '</a>
+              <a href="index.php?ctrl=forum&action=findPostByTopic&id=' . $topic->getId() . '">' . $topic->getTitle() . '</a>
             </h5>
             <p class="card-text text-center">' . $topic->getCreationdate() . '</p>
             <p class="card-text text-center">' . $topic->getUser()->getPseudo() . '</p>
@@ -92,7 +92,7 @@ if (App\Session::isAdmin()) {
       ?>
       <div>
         <button>
-          <a href="index.php?ctrl=forum&action=viewAddTop&id=<?= $category->getId() ?>">Add</a>
+          <a href="index.php?ctrl=forum&action=addTopic&id=<?= $category->getId() ?>">Add</a>
         </button>';
       </div>
     </div>
