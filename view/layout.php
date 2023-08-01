@@ -32,7 +32,7 @@
                     <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
                     <a class="href" href="index.php?ctrl=forum&action=viewUser">Liste des Utilisateurs</a>
                     <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
-                        <?= App\Session::getUser() ?>
+                        <?= App\Session::getUser()->getPseudo() ?>
                     </a>
                     <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
                     <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
@@ -42,7 +42,7 @@
                     ?>
                         <a class="href" href="index.php?ctrl=home&action=home">Accueil</a>
                         <a class="href" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
-                        <?= App\Session::getUser() ?>
+                        <?= App\Session::getUser()->getPseudo() ?>
                         </a>
                         <a class="href" href="index.php?ctrl=security&action=logout">Déconnexion</a>
                         <a class="href" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>

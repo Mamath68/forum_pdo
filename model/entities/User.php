@@ -5,13 +5,12 @@ use App\Entity;
 
 final class User extends Entity
 {
-
     private $id;
     private $pseudo;
     private $email;
-    private \DateTime $registerDate;
-    private $roleUser;
     private $password;
+    private \DateTime $registerDate;
+    private $role;
 
     public function __construct($data)
     {
@@ -47,6 +46,15 @@ final class User extends Entity
     {
         $this->email = $email;
     }
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
 
     public function getRegisterDate()
     {
@@ -59,45 +67,33 @@ final class User extends Entity
         return $this;
     }
 
-    public function getRoleUser()
+    public function getRole()
     {
-        if (!empty($this->roleUser)) {
-            return $this->roleUser;
+        if (!empty($this->role)) {
+            return $this->role;
         } else
             return [];
     }
 
-    public function setRoleUser($roleUser)
+    public function setRole($role)
     {
 
-        $this->roleUser = json_decode($roleUser);
-        if (empty($this->roleUser)) {
-            $this->roleUser[] = "ROLE_USER";
+        $this->role = json_decode($role);
+        if (!empty($this->role)) {
+            $this->role[] = "ROLE_USER";
         }
     }
 
-    public function hasRole($roleUser)
+    public function hasRole($role)
     {
-        if ($roleUser) {
-            return in_array($roleUser, $this->getRoleUser());
+        if ($role) {
+            return in_array($role, $this->getRole());
         } else
             return false;
     }
 
     public function __toString()
     {
-        return $this->pseudo;
+        return $this->getId() . " " . $this->getPseudo();
     }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-    }
-
 }

@@ -132,10 +132,8 @@ class ForumController extends AbstractController implements ControllerInterface
                             "topic_id" => $id,
                         ]
                     )
-                )
-                    ;
+                );
             }
-            // header('Location:index.php?ctrl=forum&action=findPostByTopic');
         }
         return
             [
@@ -149,34 +147,16 @@ class ForumController extends AbstractController implements ControllerInterface
 
     public function findPostByTopic($id)
     {
-
         $topicManager = new TopicManager();
         $postManager = new PostManager();
 
         return [
-
             "view" => VIEW_DIR . "forum/detailTopic.php",
             "data" => [
                 "topic" => $topicManager->findOneById($id),
                 "posts" => $postManager->findPostsByTopic($id),
             ]
         ];
-    }
-
-    public function editPostByTopic($id)
-    {
-
-    }
-
-    public function deletPostByTopic($id)
-    {
-        $postManager = new PostManager();
-
-        $idTopic = $postManager->findOneById($id);
-
-        $postManager = delete();
-
-        $this->redirectTo("forum", "detailTopic", $idTopic);
     }
 
     public function viewUser()
@@ -186,7 +166,7 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
             "view" => VIEW_DIR . "security/listUsers.php",
             "data" => [
-                "users" => $userManager->findAll(["id_user","ASC"]),
+                "users" => $userManager->findAll(["id_user", "ASC"]),
             ]
         ];
     }
