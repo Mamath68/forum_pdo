@@ -145,7 +145,7 @@ class ForumController extends AbstractController implements ControllerInterface
                     ])
                 ) {
                     Session::addFlash("success", "Commentaire ajouté");
-                    $this->redirectTo("forum", "detailTopic", $id);
+                    $this->redirectTo("forum", "detailTopic", $id );
                 } else {
                     Session::addFlash("error", "Commentaire non ajouté");
                 }
