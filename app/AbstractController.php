@@ -16,25 +16,25 @@ abstract class AbstractController
     //Création de la fonction redirectTo, qui comme l'indique son nom, redirige 
     public function redirectTo($ctrl = null, $action = null, $id = null)
     {
-        // si $ctrl(contorller) est différent de home
+
         if ($ctrl != "home") {
-            // pas tous compris ce qui se passe.
-            $url = $ctrl ? "/" . $ctrl : "";
-            $url .= $action ? "/" . $action : "";
-            $url .= $id ? "/" . $id : "";
-            //  mais en gros, ça redirige vers le fichier qui fini en php
-            $url .= ".php";
-            // sinon, ça renvoie a l'endroit indiqué par $url, ce dont je ne vois pas la différence.
+
+            $url = $ctrl ? "?ctrl=" . $ctrl : "";
+
+            $url .= $action ? "&action=" . $action : "";
+
+            $url .= $id ? "&id=" . $id : "";
         } else
             $url = "/";
-        header("Location: $url");
-        die();
 
+        header("Location: $url");
+
+        die();
     }
-// Fonction imposant une restriction au role donnée.
+    // Fonction imposant une restriction au role donnée.
     public function restrictTo($role)
     {
-// Vérifie le rôle de l'utilisateur
+        // Vérifie le rôle de l'utilisateur
         if (!Session::getUser() || !Session::getUser()->hasRole($role)) {
             // redirige vers le dossier security et le fichier login
             $this->redirectTo("security", "login");
@@ -42,5 +42,4 @@ abstract class AbstractController
         // retourne, rien du tout, du moins a première vue.
         return;
     }
-
 }

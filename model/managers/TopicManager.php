@@ -1,9 +1,9 @@
 <?php
+
 namespace Model\Managers;
 
 use App\Manager;
 use App\DAO;
-use Controller\ForumController;
 
 class TopicManager extends Manager
 {
@@ -17,24 +17,23 @@ class TopicManager extends Manager
         parent::connect();
     }
 
-    public function findOneByTopic($title)
+    public function findOneByTopic($id)
     {
         $sql = "SELECT *
         FROM " . $this->tableName . " t
-        WHERE t.title = :title";
+        WHERE t.id_topic = :id";
 
         return $this->getOneOrNullResult(
-            DAO::select($sql, ['title' => $title], true),
+            DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }
-    public function findTopicsByCat($id)
+
+    public function findOneByCategory($id)
     {
-        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.utilisateur_id, t.category_id, c.id_category, c.title
-        FROM " . $this->tableName . " t
-        INNER JOIN category c 
-        ON c.id_category = t.category_id
-        WHERE c.id_category = :id";
+        $sql = "SELECT *
+                    FROM " . $this->tableName . " t
+                    WHERE t.category_id = :id";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true),
@@ -44,14 +43,13 @@ class TopicManager extends Manager
 
     public function findTopicsByUser($id)
     {
-        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.utilisateur_id,
+        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.user_id
             FROM " . $this->tableName . " t
-            WHERE t.utilisateur_id = :id";
+            WHERE t.user_id = :id";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }
-
 }

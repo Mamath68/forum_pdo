@@ -1,4 +1,5 @@
 <?php
+
 namespace Model\Entities;
 
 use App\Entity;
@@ -7,92 +8,55 @@ final class Topic extends Entity
 {
 
         private $id;
-        private $title;
-        private $creationdate;
+        private $name;
+        private $creationDate;
         private $user;
         private $category;
-        private $closed;
 
         public function __construct($data)
         {
                 $this->hydrate($data);
         }
 
-        /**
-         * Get the value of id
-         */
         public function getId()
         {
                 return $this->id;
         }
 
-        /**
-         * Set the value of id
-         *
-         * @return  self
-         */
         public function setId($id)
         {
                 $this->id = $id;
-
-                return $this;
         }
 
-        /**
-         * Get the value of title
-         */
-        public function getTitle()
+        public function getName()
         {
-                if (!empty($this->title)) {
-                        return $this->title;
-                } else
-                        return [];
+                return $this->name;
         }
 
-        /**
-         * Set the value of title
-         *
-         * @return  self
-         */
-        public function setTitle($title)
+        public function setName($name)
         {
-                $this->title = $title;
-
-                return $this;
+                $this->name = $name;
         }
-        /**
-         * Get the value of title
-         */
 
         public function getCreationdate()
         {
-                $formattedDate = $this->creationdate->format("d/m/Y à H:i");
-                return $formattedDate;
+                return $this->creationDate->format("d/m/Y à H:i");
         }
 
         public function setCreationdate($date)
         {
-                $this->creationdate = new \DateTime($date);
+                $this->creationDate = new \DateTime($date);
                 return $this;
         }
-        /**
-         * Get the value of user
-         */
+
         public function getUser()
         {
                 return $this->user;
         }
 
-        /**
-         * Set the value of user
-         *
-         * @return  self
-         */
         public function setUser($user)
         {
                 $this->user = $user;
-
-                return $this;
         }
 
         public function getCategory()
@@ -100,36 +64,13 @@ final class Topic extends Entity
                 return $this->category;
         }
 
-        /**
-         * Set the value of user
-         *
-         * @return  self
-         */
         public function setCategory($category)
         {
                 $this->category = $category;
-
-                return $this;
         }
 
-
-// /**
-//  * Get the value of closed
-//  */ 
-// public function getClosed()
-// {
-//         return $this->closed;
-// }
-
-// /**
-//  * Set the value of closed
-//  *
-//  * @return  self
-//  */ 
-// public function setClosed($closed)
-// {
-//         $this->closed = $closed;
-
-//         return $this;
-// }
+        public function __toString()
+        {
+                return $this->getId() . " " . $this->getName() . " " . $this->getCreationDate() . " " . $this->getUser() . " " . $this->getCategory();
+        }
 }

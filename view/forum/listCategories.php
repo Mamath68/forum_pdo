@@ -2,57 +2,93 @@
 $categories = $result["data"]["categories"];
 ?>
 
-<h1>Liste des Catégorie</h1>
+<h1>Catégorie liste</h1>
 
 <?php
 
 if (App\Session::isAdmin()) {
 
-  echo '
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <section>';
-  foreach ($categories as $category) {
-    echo '<div class="text-center padd">
-        <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
-  }
-  echo '
-    </section>
+?>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <section>
+          <?php
+          if (isset($categories)) {
+            foreach ($categories as $category) {
+              
+              ?>
+              <div class="text-center padd">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+              </div>
+            <?php
+            }
+          } else {
+            ?>
+            <h2>Pas de Publication ici!!</h2>
+            <?php
+          }
+
+          ?>
+        </section>
+      </div>
     </div>
   </div>
-</div>';
-
+<?php
   include_once("addCategory.php");
-
 } else if (App\Session::getUser()) {
-  echo '
+?>
   <div class="container text-center">
     <div class="row">
       <div class="col">
-        <section>';
-  foreach ($categories as $category) {
-    echo '<div class="text-center padd">
-          <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
-  }
-  echo '
-      </section>
+        <section>
+          <?php
+          if (isset($categories)) {
+            foreach ($categories as $category) {
+              ?>
+              <div class="text-center padd">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+              </div>
+            <?php
+            }
+          } else {
+            ?>
+            <h2>Pas de Publication ici!!</h2>
+          <?php
+          }
+          ?>
+        </section>
       </div>
     </div>
-  </div>';
+  </div>
+<?php
+
 } else {
-  echo '
+?>
   <div class="container text-center">
     <div class="row">
       <div class="col">
-        <section>';
-  foreach ($categories as $category) {
-    echo '<div class="text-center padd">
-          <a href="index.php?ctrl=forum&action=detailCategory&id=' . $category->getId() . '">' . $category->getTitle() . '</a></div>';
-  }
-  echo '
-      </section>
+        <section>
+          <?php
+          if (isset($categories)) {
+            foreach ($categories as $category) {
+              ?>
+              <div class="text-center padd">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+              </div>
+            <?php
+            }
+          } else {
+            ?>
+            <h2>Pas de Publication ici!!</h2>
+          <?php
+          }
+          ?>
+        </section>
       </div>
     </div>
-  </div>';
+  </div>
+<?php
 }
+$title = "Les Catégories";
+?>

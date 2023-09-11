@@ -100,4 +100,8 @@ final class User extends Entity
 
     }
 
+    public function _toString()
+    {
+        $this->getId() . " " . $this->getPseudo() . "" . $this->getEmail() . "" . $this->getDateInscription();
+    }
 }

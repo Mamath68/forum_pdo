@@ -8,21 +8,26 @@ $users = $result["data"]['users'];
 <div style="padding-bottom:21.5%;">
 
   <?php
-  echo '<table class="table text-center">
-<thead>
-<tr>
-<th scope="col">Pseudo</th>
-<th scope="col">Date Inscription</th>
-</tr>
-</thead>';
-  foreach ($users as $user) {
-    echo '<tbody>
-  <tr>
-  <td>' . $user->getPseudo() . '</td>
-  <td>' . $user->getDateInscription() . '</td>
-  </tr>';
-  }
-  echo ' </tbody>
-</table>';
   ?>
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">Pseudo</th>
+        <th scope="col">Date Inscription</th>
+      </tr>
+    </thead>
+    <?php
+    foreach ($users as $user) {
+    ?>
+      <tbody>
+        <tr>
+          <td><?= $user->getPseudo() ?></td>
+          <td><?= $user->getDateInscription() ?></td>
+        </tr>
+      <?php
+    }
+      ?>
+      </tbody>
+  </table>
+
 </div>

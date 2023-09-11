@@ -4,7 +4,6 @@ namespace Model\Managers;
 
 use App\Manager;
 use App\DAO;
-use Model\Controller\ForumController;
 
 class CategoryManager extends Manager
 {
@@ -23,7 +22,7 @@ class CategoryManager extends Manager
                 FROM " . $this->tableName . " c
                 WHERE c.title = :title";
 
-        return $this->getOneOrNullResult(
+        return $this->getMultipleResults(
             DAO::select($sql, ['title' => $title], true),
             $this->className
         );

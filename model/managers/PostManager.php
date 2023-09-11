@@ -17,14 +17,14 @@ class PostManager extends Manager
         parent::connect();
     }
 
-    public function findOneByPost($body)
+    public function findOneByPost($id)
     {
         $sql = "SELECT *
-    FROM " . $this->tableName . " t
-    WHERE t.body = :body";
+    FROM " . $this->tableName . " p
+    WHERE p.id_post = :id";
 
         return $this->getMultipleResults(
-            DAO::select($sql, ['body' => $body], true),
+            DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }
@@ -32,54 +32,36 @@ class PostManager extends Manager
     public function findOneById($id)
     {
         $sql = "SELECT *
-            FROM " . $this->tableName . " m
-            WHERE m.id_post = :id";
+            FROM " . $this->tableName . " p
+            WHERE p.id_post = :id";
 
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }
-    public function PostByTopicId($id)
+    public function findOneByTopic($id)
     {
-        $sql = "SELECT p.id_post, p.body,p.creationDate,p.utilisateur_id, p.topic_id
-            FROM post p
-            INNER JOIN topic t
-            ON p.id_topic = t.topic_id
-            WHERE t.id_topic = :id";
+        $sql = "SELECT *
+                FROM " . $this->tableName . " p
+                WHERE p.topic_id = :id";
 
-        $params = ['id' => $id];
-        
         return $this->getMultipleResults(
-            DAO::select($sql, $params, true),
-            $this->className
-        );
+                DAO::select($sql, ['id' => $id]),
+                $this->className
+            );
     }
 
     public function findPostByUser($id)
     {
-        $sql = "SELECT p.id_post, p.body, p.creationDate, p.utilisateur_id
-                FROM post p
-                INNER JOIN utilisateur u 
-                On u.id_utilisateur = p.id_utilisateur ";
+        $sql = "SELECT p.id_post, p.body, p.creationDate, p.user_id
+                FROM " . $this->tableName . " p
+                INNER JOIN user u 
+                On u.id_user = p.id_user ";
 
         return $this->getMultipleResults(
             DAO::select($sql),
             $this->className
         );
     }
-
-    public function findTopicsByUser($id)
-    {
-        $sql = "SELECT *
-                FROM post p
-                INNER JOIN utilisateur u 
-                On u.id_utilisateur = p.id_utilisateur ";
-
-        return $this->getMultipleResults(
-            DAO::select($sql),
-            $this->className
-        );
-    }
-
 }
