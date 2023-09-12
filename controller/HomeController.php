@@ -22,7 +22,6 @@ class HomeController extends AbstractController implements ControllerInterface
 
     public function index()
     {
-
         return [
             "view" => VIEW_DIR . "home.php"
         ];
@@ -30,26 +29,19 @@ class HomeController extends AbstractController implements ControllerInterface
 
     public function users()
     {
-        $this->restrictTo("ROLE_ADMIN");
         $userManager = new UserManager();
 
         return [
-
             "view" => VIEW_DIR . "security/listUsers.php",
-
             "data" => [
-
                 "users" => $userManager->findAll(["dateInscription", "DESC"])
-
             ]
         ];
     }
 
     public function detailUser($id)
     {
-
         $userManager = new UserManager();
-
 
         return [
             "view" => VIEW_DIR . "security/detailUser.php",
@@ -61,22 +53,14 @@ class HomeController extends AbstractController implements ControllerInterface
 
     public function forumRules()
     {
-
         return [
             "view" => VIEW_DIR . "home/forumRules.php"
         ];
     }
     public function forumMentions()
     {
-
         return [
             "view" => VIEW_DIR . "home/mentions_legal.php"
         ];
     }
-
-/*public function ajax(){
-$nb = $_GET['nb'];
-$nb++;
-include(VIEW_DIR."ajax.php");
-}*/
 }

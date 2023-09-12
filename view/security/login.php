@@ -14,3 +14,8 @@
 </form>
 
 <button type="submit" class="btn btn-success reject2"><a class="href" href="index.php?ctrl=security&action=registerForm">Pas encore de compte? Enregistrez-vous!</a> </button>
+
+<?php
+$title = "Se Connecter";
+
+?>

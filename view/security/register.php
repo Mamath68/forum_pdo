@@ -16,10 +16,14 @@
     </div>
     <div class="mb-3">
         <label for="confirmPassword" class="form-label">Password</label>
-        <input type="password" name="confirmpassword" id="password" placeholder="Confirmer Mot de passe"
-            class="form-control" required>
+        <input type="password" name="confirmpassword" id="password" placeholder="Confirmer Mot de passe" class="form-control" required>
     </div>
-        <button type="submit" class="btn btn-primary reject">Enregistrer</button>
+    <button type="submit" class="btn btn-primary reject">Enregistrer</button>
 </form>
 <button type="submit" class="btn btn-success reject2"><a class="href" href="index.php?ctrl=security&action=loginForm">Déja un
-    compte? Se connecter</a> </button>
+        compte? Se connecter</a> </button>
+
+<?php
+$title = "S'enregistrer";
+
+?>

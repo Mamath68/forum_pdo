@@ -1,4 +1,5 @@
 <?php
+
 namespace Model\Entities;
 
 use App\Entity;
@@ -97,11 +98,10 @@ final class User extends Entity
     public function setPassword($password)
     {
         $this->password = $password;
-
     }
 
     public function _toString()
     {
-        $this->getId() . " " . $this->getPseudo() . "" . $this->getEmail() . "" . $this->getDateInscription();
+        $this->getId() . " " . $this->getPseudo() . " " . $this->getEmail() . " " . $this->getDateInscription() . " " . $this->hasRole($this->getRoleUser());
     }
 }

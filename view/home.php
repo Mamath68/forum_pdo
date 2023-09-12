@@ -27,3 +27,5 @@ if (App\Session::isAdmin()) {
         </p>
     <?php
 }
+
+$title = "Accueil";

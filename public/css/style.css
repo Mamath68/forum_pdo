@@ -24,16 +24,8 @@ ul li {
     list-style: none;
 }
 
-.mainadmin {
-    min-height: 79.7vh;
-}
-
-.mainuser {
-    min-height: 79.7vh;
-}
-
-.mainmain {
-    min-height: 81.8vh;
+main {
+    height: 100vh;
 }
 
 .form-label {

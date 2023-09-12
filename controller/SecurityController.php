@@ -36,23 +36,19 @@ class SecurityController extends AbstractController implements ControllerInterfa
             "data" => null,
         ];
     }
+
     public function register()
     {
-
         if (!empty($_POST)) {
-
-            $nickname = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            // REGEXP possible pseudo:
-            // FILTER_VALIDATE_REGEXP, array("option" => array("regexp"=>'/[A-Za-z0-9]{4,}/'));
-            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            // REGEXP possible pasword:
-            // FILTER_VALIDATE_REGEXP, array("option" => array("regexp"=>'/[A-Za-z0-9]{6,32}/'));
-            $confirmpassword = filter_input(INPUT_POST, "confirmpassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
-            if ($nickname && $password && $email) {
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $confirmpassword = filter_input(INPUT_POST, "confirmpassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if ($pseudo && $password && $email) {
                 if (($password == $confirmpassword) and strlen($password) >= 3) {
                     $manager = new UserManager();
-                    $user = $manager->findOneByPseudo($nickname);
+                    $user = $manager->findOneByPseudo($pseudo);
 
                     if (!$user) {
 
@@ -60,23 +56,34 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
                         if (
                             $manager->add([
-                                "pseudo" => $nickname,
+                                "pseudo" => $pseudo,
                                 "email" => $email,
-                                "password" => $hash
+                                "password" => $hash,
+                                "roleUser" => json_encode(["ROLE_USER"]),
                             ])
                         ) {
-                            return [
-                                "view" => VIEW_DIR . "security/login.php",
-                            ];
+                            $this->redirectTo("security", "loginForm");
                         }
                     }
                 }
+            } else {
+?>
+                <h1 style='color:red;'>Erreur d'Enregistrement !</h1>
+            <?php
+                return [
+                    "view" => VIEW_DIR . "security/register.php",
+                ];
             }
+        } else {
+            ?>
+            <h1 style='color:orange;'>Ces données n'ont pas été soumis !</h1>
+<?php
+            return [
+                "view" => VIEW_DIR . "security/register.php",
+            ];
         }
-        return [
-            "view" => VIEW_DIR . "security/register.php",
-        ];
     }
+
     public function loginForm()
     {
         return [
@@ -89,13 +96,13 @@ class SecurityController extends AbstractController implements ControllerInterfa
     {
         if (!empty($_POST)) {
 
-            $nickname = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            if ($nickname && $password) {
+            if ($pseudo && $password) {
 
                 $manager = new UserManager();
-                $user = $manager->findOneByPseudo($nickname);
+                $user = $manager->findOneByPseudo($pseudo);
 
                 $pass = $user->getPassword();
 
@@ -103,7 +110,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
                     if (password_verify($password, $pass)) {
                         session::setUser($user);
 
-                        header('Location:index.php?ctrl=security&action=index');
+                        $this->redirectTo("security", "index");
                     } else {
                         return [
                             "view" => VIEW_DIR . "security/login.php",
@@ -113,19 +120,29 @@ class SecurityController extends AbstractController implements ControllerInterfa
                 }
             }
         }
-        // var_dump($_POST);
-
-
-    }
-
-    public function modifyPassword()
-    {
-
     }
 
     public function logout()
     {
         unset($_SESSION['user']);
-        header('location: index.php?ctrl=security&action=index');
+        $this->redirectTo("security", "index");
+    }
+
+    public function deleteAccountForm()
+    {
+
+        return [
+            "view" => VIEW_DIR . "security/deleteAccount.php",
+            "data" => null,
+        ];
+    }
+
+    public function deleteAccount()
+    {
+
+        return [
+            "view" => VIEW_DIR . "security/deleteAccount.php",
+            "data" => null,
+        ];
     }
 }

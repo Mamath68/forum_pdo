@@ -31,3 +31,8 @@ $users = $result["data"]['users'];
   </table>
 
 </div>
+
+<?php
+$title = "Liste des Utilisateurs";
+
+?>

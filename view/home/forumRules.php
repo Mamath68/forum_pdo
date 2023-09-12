@@ -51,3 +51,8 @@
     <p> Une inscription signifie automatiquement l'acceptation des termes de ce règlement.</p>
 
 </div>
+
+<?php
+$title = "Reglement du Forum";
+
+?>
