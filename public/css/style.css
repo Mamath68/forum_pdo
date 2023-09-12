@@ -4,23 +4,16 @@
     box-sizing: border-box;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-align: center;
 }
 
-.flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-nav {
-    background-color: black;
-    padding: 2em;
-    color: white;
-    line-height: 0px;
-}
-
-ul li {
+li {
     list-style: none;
 }
 
@@ -28,77 +21,40 @@ main {
     height: 100vh;
 }
 
-.form-label {
-    color: black;
-    opacity: 1;
-}
-
-.mb-3 {
-    text-align: center;
-}
-
 a {
     text-decoration: none;
 }
 
-.href {
-    color: white;
-}
-.href:hover {
-    color: white;
+footer {
+    color: wheat;
+    background-color: #0a4275;
 }
 
-#nav-right {
+.footer {
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
-    margin-bottom: 10px;
-}
-
-.nav-right {
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
 }
 
-.p {
-    text-align: center;
-}
-
-.align {
+.footer2 {
     display: flex;
+    margin-left: 5%;
+    flex-direction: row;
 }
 
-footer {
-    background-color: black;
-    padding: 1.5em;
+.footer2 .link {
+    margin-right: 5rem;
+}
+
+.link {
     color: white;
-    line-height: 0px;
 }
 
-.form-control {
-    width: 50%;
-    border-radius: 2rem;
-    margin-left: 390px;
-    padding: 1em;
-}
-
-.padd {
-    padding-bottom: 30px;
+.link:hover {
+    color: white;
 }
 
 .Formulaire {
     background-color: red;
     padding: 2em;
 }
-
-.reject{
-    margin-left: 50%;
-}
-.reject2{
-    margin-left: 45%;
-}
-
-/* img {
-    width: 30%;
-} */
