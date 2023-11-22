@@ -17,18 +17,6 @@ class PostManager extends Manager
         parent::connect();
     }
 
-    public function findOneByPost($id)
-    {
-        $sql = "SELECT *
-    FROM " . $this->tableName . " p
-    WHERE p.id_post = :id";
-
-        return $this->getMultipleResults(
-            DAO::select($sql, ['id' => $id], true),
-            $this->className
-        );
-    }
-
     public function findOneById($id)
     {
         $sql = "SELECT *
@@ -44,23 +32,25 @@ class PostManager extends Manager
     {
         $sql = "SELECT *
                 FROM " . $this->tableName . " p
+                inner join topic t
+                on t.id_topic = p.topic_id
                 WHERE p.topic_id = :id";
 
         return $this->getMultipleResults(
-                DAO::select($sql, ['id' => $id]),
-                $this->className
-            );
+            DAO::select($sql, ['id' => $id]),
+            $this->className
+        );
     }
 
     public function findPostByUser($id)
     {
         $sql = "SELECT p.id_post, p.body, p.creationDate, p.user_id
                 FROM " . $this->tableName . " p
-                INNER JOIN user u 
-                On u.id_user = p.id_user ";
+                INNER JOIN user u ON u.id_user = p.user_id
+                WHERE p.user_id = :id ";
 
         return $this->getMultipleResults(
-            DAO::select($sql),
+            DAO::select($sql, ['id' => $id], true),
             $this->className
         );
     }

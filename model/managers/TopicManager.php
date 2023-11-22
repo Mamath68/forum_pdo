@@ -17,18 +17,6 @@ class TopicManager extends Manager
         parent::connect();
     }
 
-    public function findOneByTopic($id)
-    {
-        $sql = "SELECT *
-        FROM " . $this->tableName . " t
-        WHERE t.id_topic = :id";
-
-        return $this->getOneOrNullResult(
-            DAO::select($sql, ['id' => $id], true),
-            $this->className
-        );
-    }
-
     public function findOneByCategory($id)
     {
         $sql = "SELECT *
@@ -41,10 +29,11 @@ class TopicManager extends Manager
         );
     }
 
-    public function findTopicsByUser($id)
+    public function findTopicByUser($id)
     {
-        $sql = "SELECT t.id_topic, t.title, t.creationDate, t.user_id
+        $sql = "SELECT t.id_topic, t.name, t.creationDate, t.user_id
             FROM " . $this->tableName . " t
+            INNER JOIN user u ON u.id_user = t.user_id
             WHERE t.user_id = :id";
 
         return $this->getMultipleResults(

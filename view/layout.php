@@ -15,71 +15,120 @@
 <body>
     <?php
     if (App\Session::isAdmin()) {
+        if ($title == App\Session::getUser()->getPseudo()) {
     ?>
-        <header>
-            <nav class="navbar navbar-expand-lg bg-secondary">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php?ctrl=home&action=home">Accueil</a>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=home&action=users">Voir la liste des utilisateurs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
-                                    <?= App\Session::getUser()->getPseudo() ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                            </li>
-                        </ul>
-                        <div class="d-flex">
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                            </li>
+            <header>
+                <nav class="navbar navbar-expand-lg bg-secondary">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <?= App\Session::getUser()->getPseudo() ?></a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=home&action=home">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Les Catégories</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
+        <?php        } else {
+        ?>
+            <header>
+                <nav class="navbar navbar-expand-lg bg-secondary">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <?= App\Session::getUser()->getPseudo() ?></a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=home&action=home">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Les Catégories</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        <?php
+        }
+        ?>
         <main>
             <?= $contenu ?>
         </main>
-    <?php
+        <?php
     } else if (App\Session::getUser()) {
-    ?>
-        <header>
-            <nav class="navbar navbar-expand-lg bg-secondary">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php?ctrl=home&action=home">Accueil</a>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=home&action=users">Voir la liste des utilisateurs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
-                                    <?= App\Session::getUser()->getPseudo() ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                            </li>
-                        </ul>
-                        <div class="d-flex">
-                            <li class="nav-item">
-                                <a class="nav-link link-light" href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                            </li>
+        if ($title == App\Session::getUser()->getPseudo()) {
+        ?>
+            <header>
+                <nav class="navbar navbar-expand-lg bg-secondary">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <?= App\Session::getUser()->getPseudo() ?></a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=home&action=home">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Les Catégories</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
+        <?php
+        } else {
+        ?>
+            <header>
+                <nav class="navbar navbar-expand-lg bg-secondary">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.php?ctrl=home&action=detailUser"><span class="fas fa-user"></span>&nbsp;
+                            <?= App\Session::getUser()->getPseudo() ?></a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=home&action=home">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Les Catégories</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex">
+                                <li class="nav-item">
+                                    <a class="nav-link link-light" href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        <?php
+        }
+        ?>
         <main>
             <?= $contenu ?>
         </main>
@@ -87,84 +136,38 @@
     } else {
     ?>
         <header>
-            <header>
-                <nav class="navbar navbar-expand-lg bg-secondary">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <a class="navbar-brand" href="index.php?ctrl=home&action=home">Accueil</a>
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                            <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
-                                </li>
-                            </ul>
-                        </div>
+            <nav class="navbar navbar-expand-lg bg-secondary">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php?ctrl=home&action=home">Accueil</a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link link-light" href="index.php?ctrl=forum&action=listcategories">Liste des Catégories</a>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
-            </header>
-            <main>
-                <?= $contenu ?>
-            </main>
-        <?php } ?>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <?= $contenu ?>
+        </main>
+    <?php } ?>
 
-        <footer class="text-white text-center text-lg-start bg-primary">
-            <div class="text-center p-3 footer" style="background-color: rgba(0, 0, 0, 0.2);">
-                <div>
-                    &copy; 2020 - Forum CDA
-                </div>
-                <div class="footer2">
-                    <a class="link" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
-                    <a class="link" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
-                </div>
+    <footer class="text-white text-center text-lg-start bg-primary">
+        <div class="text-center p-3 footer" style="background-color: rgba(0, 0, 0, 0.2);">
+            <div>
+                &copy; 2020 - Forum CDA
             </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-        </script>
-        <script>
-            $(document).ready(function() {
-                $(".message").each(function() {
-                    if ($(this).text().length > 0) {
-                        $(this).slideDown(0, function() {
-                            $(this).delay(0).slideUp(0)
-                        })
-                    }
-                })
-                $(".delete-btn").on("click", function() {
-                    return confirm("Etes-vous sûr de vouloir supprimer?")
-                })
-                tinymce.init({
-                    selector: '.post',
-                    menubar: false,
-                    plugins: [
-                        'advlist autolink lists link image charmap print preview anchor',
-                        'searchreplace visualblocks code fullscreen',
-                        'insertdatetime media table paste code help wordcount'
-                    ],
-                    toolbar: 'undo redo | formatselect | ' +
-                        'bold italic backcolor | alignleft aligncenter ' +
-                        'alignright alignjustify | bullist numlist outdent indent | ' +
-                        'removeformat | help',
-                    content_css: '//www.tiny.cloud/css/codepen.min.css'
-                });
-            })
-
-
-
-            /*
-            $("#ajaxbtn").on("click", function(){
-                $.get(
-                    "index.php?action=ajax",
-                    {
-                        nb : $("#nbajax").text()
-                    },
-                    function(result){
-                        $("#nbajax").html(result)
-                    }
-                )
-            })*/
-        </script>
+            <div class="footer2">
+                <a class="link" href="index.php?ctrl=home&action=forumRules" target="_blank">Règlement du forum</a>
+                <a class="link" href="index.php?ctrl=home&action=forumMentions" target="_blank">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

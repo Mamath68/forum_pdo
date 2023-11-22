@@ -36,7 +36,7 @@ abstract class AbstractController
     {
         // Vérifie le rôle de l'utilisateur
         if (!Session::getUser() || !Session::getUser()->hasRole($role)) {
-            // redirige vers le dossier security et le fichier login
+            // redirige vers la fonction login dans le controller security
             $this->redirectTo("security", "login");
         }
         // retourne, rien du tout, du moins a première vue.

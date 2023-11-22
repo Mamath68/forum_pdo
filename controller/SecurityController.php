@@ -3,19 +3,19 @@
 // Ouvre le namespace Controller
 namespace Controller;
 
-// fait appel a Session dans dossier APP
+// fait appel a Session dans le namespace App
 use App\Session;
-// fait appel a AbstractController dans dossier APP
+// fait appel a AbstractController dans le namespace App
 use App\AbstractController;
-// fait appel a ControllerInterface dans dossier APP
+// fait appel a ControllerInterface dans le namespace App
 use App\ControllerInterface;
-// fait appel a TopicManager dans sous-dossier Managers du dossier Model
+// fait appel a TopicManager dans le namespace Model\Managers
 use Model\Managers\TopicManager;
-// fait appel a PostManager dans sous-dossier Managers du dossier Model
+// fait appel a PostManager dans le namespace Model\Managers
 use Model\Managers\PostManager;
-// fait appel a CategoryManager dans sous-dossier Managers du dossier Model
+// fait appel a CategoryManager dans le namespace Model\Managers
 use Model\Managers\CategoryManager;
-// fait appel a UserManager dans sous-dossier Managers du dossier Model
+// fait appel a UserManager dans le namespace Model\Managers
 use Model\Managers\UserManager;
 
 // class securityController hérite de la classe AbstractController et implémente ControllerInterface.

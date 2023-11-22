@@ -11,27 +11,26 @@ if (App\Session::isAdmin()) {
 ?>
   <div class="container text-center">
     <div class="row">
-      <div class="col">
-        <section>
-          <?php
-          if (isset($categories)) {
-            foreach ($categories as $category) {
-              
-              ?>
-              <div class="text-center padd">
-                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+      <?php
+      if (isset($categories)) {
+        foreach ($categories as $category) {
+      ?>
+          <div class="col">
+            <div class="card" style="max-width: 20rem;">
+              <div class="card-body">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= ucfirst($category->getTitle()) ?></a>
               </div>
-            <?php
-            }
-          } else {
-            ?>
-            <h2>Pas de Publication ici!!</h2>
-            <?php
-          }
+            </div>
+          </div>
+        <?php
+        }
+      } else {
+        ?>
+        <h2>Pas de Publication ici!!</h2>
+      <?php
+      }
 
-          ?>
-        </section>
-      </div>
+      ?>
     </div>
   </div>
 <?php
@@ -40,25 +39,25 @@ if (App\Session::isAdmin()) {
 ?>
   <div class="container text-center">
     <div class="row">
-      <div class="col">
-        <section>
-          <?php
-          if (isset($categories)) {
-            foreach ($categories as $category) {
-              ?>
-              <div class="text-center padd">
-                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+      <?php
+      if (isset($categories)) {
+        foreach ($categories as $category) {
+      ?>
+          <div class="col">
+            <div class="card" style="max-width: 20rem;">
+              <div class="card-body">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= ucfirst($category->getTitle()) ?></a>
               </div>
-            <?php
-            }
-          } else {
-            ?>
-            <h2>Pas de Publication ici!!</h2>
-          <?php
-          }
-          ?>
-        </section>
-      </div>
+            </div>
+          </div>
+        <?php
+        }
+      } else {
+        ?>
+        <h2>Pas de Catégorie ici!!</h2>
+      <?php
+      }
+      ?>
     </div>
   </div>
 <?php
@@ -67,25 +66,25 @@ if (App\Session::isAdmin()) {
 ?>
   <div class="container text-center">
     <div class="row">
-      <div class="col">
-        <section>
-          <?php
-          if (isset($categories)) {
-            foreach ($categories as $category) {
-              ?>
-              <div class="text-center padd">
-                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= $category->getTitle() ?></a>
+      <?php
+      if (isset($categories)) {
+        foreach ($categories as $category) {
+      ?>
+          <div class="col">
+            <div class="card" style="max-width: 20rem;">
+              <div class="card-body">
+                <a href="index.php?ctrl=forum&action=detailCategory&id=<?= $category->getId() ?>"><?= ucfirst($category->getTitle()) ?></a>
               </div>
-            <?php
-            }
-          } else {
-            ?>
-            <h2>Pas de Publication ici!!</h2>
-          <?php
-          }
-          ?>
-        </section>
-      </div>
+            </div>
+          </div>
+        <?php
+        }
+      } else {
+        ?>
+        <h2>Pas de Catégorie ici!!</h2>
+      <?php
+      }
+      ?>
     </div>
   </div>
 <?php

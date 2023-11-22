@@ -5,10 +5,7 @@ $users = $result["data"]['users'];
 ?>
 
 <h1>Liste des Utilisateur</h1>
-<div style="padding-bottom:21.5%;">
 
-  <?php
-  ?>
   <table class="table text-center">
     <thead>
       <tr>
@@ -21,7 +18,9 @@ $users = $result["data"]['users'];
     ?>
       <tbody>
         <tr>
-          <td><?= $user->getPseudo() ?></td>
+          <td><a class="link-dark" href="index.php?ctrl=home&action=publicUser&id=<?= $user->getId() ?>">
+              <?= $user->getPseudo() ?>
+            </a></td>
           <td><?= $user->getDateInscription() ?></td>
         </tr>
       <?php

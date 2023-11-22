@@ -3,18 +3,21 @@
 // Ouvre le namespace Controller
 namespace Controller;
 
-// fait appel a Session dans dossier APP
+// Fait appel a Session dans le namespace App
 use App\Session;
-// fait appel a AbstractController dans dossier APP
+// Fait appel a AbstractController dans le namespace App
 use App\AbstractController;
-// fait appel a ControllerInterface dans dossier APP
+// Fait appel a ControllerInterface dans le namespace App
 use App\ControllerInterface;
-// fait appel a TopicManager dans sous-dossier Managers du dossier Model
+use Model\Entities\Category;
+// Fait appel a TopicManager dans le namespace Model\Managers
 use Model\Managers\TopicManager;
-// fait appel a PostManager dans sous-dossier Managers du dossier Model
+// Fait appel a PostManager dans le namespace Model\Managers
 use Model\Managers\PostManager;
-// fait appel a CategoryManager dans sous-dossier Managers du dossier Model
+// Fait appel a CategoryManager dans le namespace Model\Managers
 use Model\Managers\CategoryManager;
+// Fait appel a UserManager dans le namespace Model\Managers
+use Model\Managers\UserManager;
 
 // class ForumController hérite de la classe AbstractController et implémente ControllerInterface.
 class ForumController extends AbstractController implements ControllerInterface
@@ -23,33 +26,32 @@ class ForumController extends AbstractController implements ControllerInterface
     // Fonction gerant la liste des catégories
     public function listcategories()
     {
-
         $categoryManager = new CategoryManager();
 
-        return [
-
-            "view" => VIEW_DIR . "forum/listcategories.php",
-            "data" => [
-                "categories" => $categoryManager->findAll(["id_category", "ASC"]),
-            ]
-        ];
+        return
+            [
+                "view" => VIEW_DIR . "forum/listcategories.php",
+                "data" => [
+                    "categories" => $categoryManager->findAll(["id_category", "ASC"]),
+                ]
+            ];
     }
 
     public function detailCategory($id)
-        {
-            $topicManager = new TopicManager();
-            $categoryManager = new CategoryManager();
+    {
+        $topicManager = new TopicManager();
+        $categoryManager = new CategoryManager();
 
-            return 
+        return
             [
-                "view" => VIEW_DIR."forum/detailCategory.php",
-                "data" => 
+                "view" => VIEW_DIR . "forum/detailCategory.php",
+                "data" =>
                 [
                     "topics" => $topicManager->findOneByCategory($id),
                     "title" => $categoryManager->findOneById($id)
                 ]
             ];
-        }
+    }
 
     public function detailTopic($id)
     {
@@ -57,15 +59,14 @@ class ForumController extends AbstractController implements ControllerInterface
         $postManager = new PostManager();
         $topicManager = new TopicManager();
 
-        return [
-
-            "view" => VIEW_DIR . "forum/detailTopic.php",
-
-            "data" => [
-                "posts" => $postManager->findOneByTopic($id),
-                "title" => $topicManager->findOneById($id),
-            ]
-        ];
+        return
+            [
+                "view" => VIEW_DIR . "forum/detailTopic.php",
+                "data" => [
+                    "posts" => $postManager->findOneByTopic($id),
+                    "title" => $topicManager->findOneById($id),
+                ]
+            ];
     }
 
     public function addCategory()
@@ -90,7 +91,6 @@ class ForumController extends AbstractController implements ControllerInterface
             ]
         ];
     }
-
 
     public function addPostByTopic()
     {
@@ -123,49 +123,64 @@ class ForumController extends AbstractController implements ControllerInterface
         }
     }
 
-    public function viewpost()
+    public function viewPostByUser($id)
     {
         $postManager = new PostManager();
+        $userManager = new UserManager();
+
         return
             [
-                "view" => VIEW_DIR . "forum/detailTopic.php",
+                "view" => VIEW_DIR . "forum/mesPosts.php",
                 "data" =>
                 [
-                    "categories" => $postManager->findAll()
+                    "posts" => $postManager->findPostByUser($id),
+                    "user" => $userManager->findOneById($id),
+                ]
+            ];
+    }
+    public function viewTopicByUser($id)
+    {
+        $topicManager = new TopicManager();
+        $userManager = new UserManager();
+        return
+            [
+                "view" => VIEW_DIR . "forum/mesTopics.php",
+                "data" =>
+                [
+                    "topics" => $topicManager->findTopicByUser($id),
+                    "user" => $userManager->findOneById($id),
                 ]
             ];
     }
     public function addTopic($id)
     {
+        $categoryManager = new CategoryManager();
+
+        $id = $_GET['id'];
+        
         if (!empty($_POST)) {
 
             $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $user = Session::getUser()->getId();
 
-            $topicManager = new TopicManager();
-            if (!$name) {
+            if ($name) {
+                $topicManager = new TopicManager();
                 if (
-                    !$topicManager->add([
-                        "name" => $name,
-                        "user_id" => $user,
-                        "category_id" => $id,
-                    ])
-                ) {
-                    Session::addFlash("success", "Commentaire ajouté");
-                    $this->redirectTo("forum", "detailTopic", $id);
-                } else {
-                    Session::addFlash("error", "Commentaire non ajouté");
-                }
+                    !$topicManager->add(
+                        [
+                            "name" => $name,
+                            "user_id" => $user,
+                            "category_id" => $id,
+                        ]
+                    )
+                )
+                    $this->redirectTo("forum", "detailCategory", $id);
             }
-        } else {
-            Session::addFlash("error", "Une erreur de formulaire");
         }
-        $categoryManager = new CategoryManager();
         return [
-            "view" => VIEW_DIR . "forum/ajouterTopic.php",
+            "view" => VIEW_DIR . "forum/detailCategory.php",
             "data" => [
-                "category" => $categoryManager->findOneById($id)
+                "category" => $topicManager->findOneById($id)
             ]
         ];
     }

@@ -3,18 +3,15 @@
 // Ouvre le namespace Controller
 namespace Controller;
 
-// fait appel a Session dans dossier APP
+// fait appel a Session dans le namespace App
 use App\Session;
-// fait appel a AbstractController dans dossier APP
+// fait appel a AbstractController dans le namespace App
 use App\AbstractController;
-// fait appel a ControllerInterface dans dossier APP
+// fait appel a ControllerInterface dans le namespace App
 use App\ControllerInterface;
-// fait appel a TopicManager dans sous-dossier Managers du dossier Model
-use Model\Managers\TopicManager;
-// fait appel a UserManager dans sous-dossier Managers du dossier Model
+// fait appel a UserManager dans le namespace Model\Managers
 use Model\Managers\UserManager;
-// fait appel a PostManager dans sous-dossier Managers du dossier Model
-use Model\Managers\PostManager;
+
 
 // class HomeController hérite de la classe AbstractController et implémente ControllerInterface.
 class HomeController extends AbstractController implements ControllerInterface
@@ -29,12 +26,12 @@ class HomeController extends AbstractController implements ControllerInterface
 
     public function users()
     {
+        $this->restrictTo(['ROLE_ADMIN']);
         $userManager = new UserManager();
-
         return [
             "view" => VIEW_DIR . "security/listUsers.php",
             "data" => [
-                "users" => $userManager->findAll(["dateInscription", "DESC"])
+                "users" => $userManager->findAll(["roleUser", "DESC"])
             ]
         ];
     }
@@ -42,9 +39,19 @@ class HomeController extends AbstractController implements ControllerInterface
     public function detailUser($id)
     {
         $userManager = new UserManager();
-
         return [
             "view" => VIEW_DIR . "security/detailUser.php",
+            "data" => [
+                "user" => $userManager->findOneById($id),
+            ]
+        ];
+    }
+
+    public function publicUser($id)
+    {
+        $userManager = new UserManager();
+        return [
+            "view" => VIEW_DIR . "security/publicProfil.php",
             "data" => [
                 "user" => $userManager->findOneById($id),
             ]

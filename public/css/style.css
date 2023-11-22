@@ -25,6 +25,37 @@ a {
     text-decoration: none;
 }
 
+.delete {
+    border: 3px solid brown;
+    background-color: brown;
+    color: wheat;
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-gap: 10px;
+}
+
+.buttons button {
+    border: 1px solid #8E24AA !important;
+    height: auto;
+    width: 20vw;
+}
+
+.buttons button:hover {
+    border: 1px solid #8E24AA !important;
+    height: auto;
+    width: 20vw;
+    text-decoration: underline;
+}
+
 footer {
     color: wheat;
     background-color: #0a4275;
